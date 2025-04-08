@@ -18,7 +18,6 @@ return new class extends Migration {
             $table->decimal('price_at_time', 8, 2); // store snapshot of price
             $table->timestamps();
         });
-
     }
 
     /**
