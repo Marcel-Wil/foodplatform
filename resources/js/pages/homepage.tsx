@@ -1,12 +1,9 @@
-import React from 'react'
-import Navbar from '../components/navbar'
+import Layout from '../layouts/main-layout';
 
 const homepage = () => {
-  return (
-    <div>
-        <Navbar/>
-    </div>
-  )
-}
+    return <div className="h-screen">yo homepage</div>;
+};
 
-export default homepage 
+homepage.layout = (page) => <Layout children={page} />;
+
+export default homepage;
