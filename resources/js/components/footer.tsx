@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <footer className="flex w-full flex-col items-center bg-blue-400">
+        <footer className="flex w-full flex-col items-center bg-[#FFF9EA]">
             <div className="flex flex-wrap space-x-10 text-xl font-bold">
                 <a href="#">Menu</a>
                 <a href="#">Plans</a>
@@ -8,7 +8,7 @@ const Footer = () => {
                 <a href="#">Login</a>
             </div>
             <div className="mx-auto my-6 w-1/2">
-                <img src="/images/logo-B0sc7mDB.svg" alt="Logo" className="w-full" />
+                <img src="/images/crowdcooks.svg" alt="Logo" className="w-full" />
             </div>
 
             <div className="w-full bg-black py-6 text-gray-400">
