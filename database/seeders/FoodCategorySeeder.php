@@ -14,6 +14,6 @@ class FoodCategorySeeder extends Seeder
     public function run(): void
     {
         //
-        FoodCategory::factory()->count(5)->create();
+        FoodCategory::factory()->count(2)->create(); // only 2 bcs unique 2 items in factory
     }
 }
