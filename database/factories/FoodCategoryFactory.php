@@ -13,17 +13,9 @@ class FoodCategoryFactory extends Factory
     public function definition(): array
     {
         // Define some category names
-        $categoryName = fake()->randomElement([
-            'Appetizers',
-            'Main Course',
-            'Desserts',
-            'Beverages',
-            'Salads',
-            'Sides',
-            'Pasta',
-            'Soups',
-            'Grill',
-            'Breakfast',
+        $categoryName = fake()->unique()->randomElement([
+            'Vegan',
+            'Meat',
         ]);
 
         return [
