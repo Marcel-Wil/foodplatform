@@ -2,7 +2,7 @@ import Layout from '@/layouts/main-layout';
 
 const Register = () => {
     return (
-        <div className="pt-50">
+        <div className="pt-44">
             <div className="mx-auto mb-12 w-full max-w-xl rounded-md bg-[#FAF2DB] p-10 shadow-md">
                 <h1 className="mb-6 text-center text-2xl font-bold">REGISTER</h1>
 
