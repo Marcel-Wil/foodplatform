@@ -30,11 +30,9 @@ class FaqResource extends Resource
                 Forms\Components\Textarea::make('answer')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('category'),
-                Forms\Components\TextInput::make('order')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
+                Forms\Components\Select::make('faq_category_id')
+                    ->relationship('faq_category', 'name')
+                    ->required(),
             ]);
     }
 
