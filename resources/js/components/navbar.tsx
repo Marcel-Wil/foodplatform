@@ -2,7 +2,9 @@ const navbar = () => {
     return (
         <nav className="fixed flex w-full items-center justify-between gap-16 bg-[#FFF9EA] px-6 py-3">
             <div className="flex gap-16">
-                <a href="/"><img src="/images/crowdcooks.svg" alt="" /></a>
+                <a href="/">
+                    <img src="/images/crowdcooks.svg" alt="" />
+                </a>
                 <div className="flex gap-8">
                     <a href="/menu" className="text-xl font-bold text-black hover:underline">
                         Menu

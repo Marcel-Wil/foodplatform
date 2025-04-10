@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <footer className="flex w-full flex-col items-center bg-[#FFF9EA]">
-            <div className="flex flex-wrap space-x-10 text-xl font-bold">
+            <div className="font-bol flex flex-wrap space-x-10 text-xl text-black underline">
                 <a href="#">Menu</a>
                 <a href="#">Plans</a>
                 <a href="#">Faq</a>
