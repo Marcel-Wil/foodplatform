@@ -3,9 +3,11 @@ import Layout from '@/layouts/main-layout';
 const profile = () => {
     return (
         <div className="mt-13 flex flex-col font-bold">
-            <div className="flex space-x-14 bg-[#FFF9EA] underline md:pl-84">
-                <p>Profile Settings</p>
-                <p>My orders</p>
+            <div className="flex space-x-14 bg-[#FFF9EA] md:pl-84">
+                <a href="/settings/profile" className="underline">
+                    Profile Settings
+                </a>
+                <a href="/settings/orders">My orders</a>
             </div>
             <div className="mx-auto mt-20 flex min-w-7xl flex-col border bg-[#f9f1de]">
                 <h1 className="text-center text-4xl font-bold">My Settings</h1>
