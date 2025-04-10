@@ -20,7 +20,7 @@ const homepage = () => {
                         <img className="mb-8 w-96" src="/images/crowdcooks.svg" />
                         <h1 className="mb-4 font-sans text-6xl text-black uppercase">Fresh & local</h1>
                         <p className="font-display mb-8 text-4xl font-bold tracking-tight text-black uppercase">Your ready-to-eat mealbox</p>
-                        <button className="rounded-md border-2 border-black px-5 py-3 text-xl font-bold text-black uppercase hover:bg-black hover:text-[#FFF9EA]">
+                        <button className="rounded border-2 border-black px-5 py-3 text-xl font-bold text-black uppercase hover:bg-black hover:text-[#FFF9EA]">
                             ORDER NOW
                         </button>
                     </div>
@@ -57,7 +57,7 @@ const homepage = () => {
             {/* meal plan button */}
             <div className="w-full px-5 py-12 text-center">
                 <a href="/plan">
-                    <button className="rounded-md border-2 border-black p-2 px-5 py-3 text-xl font-extrabold text-black hover:bg-black hover:text-[#FFF9EA]">
+                    <button className="rounded border-2 border-black p-2 px-5 py-3 text-xl font-extrabold text-black hover:bg-black hover:text-[#FFF9EA]">
                         CHOOSE YOUR MEAL PLAN
                     </button>
                 </a>
@@ -89,7 +89,7 @@ const homepage = () => {
             {/* view full menu */}
             <div className="bg-[#F9F1DE] py-9 text-center">
                 <a href="/plan">
-                    <button className="rounded-md border-2 border-black p-2 px-5 py-3 text-xl font-extrabold text-black uppercase hover:bg-black hover:text-[#FFF9EA]">
+                    <button className="rounded border-2 border-black p-2 px-5 py-3 text-xl font-extrabold text-black uppercase hover:bg-black hover:text-[#FFF9EA]">
                         View full menu
                     </button>
                 </a>
@@ -118,7 +118,7 @@ const homepage = () => {
 
                 {/* load more */}
                 <div className="mb-24 w-full text-center">
-                    <button className="rounded-md bg-[#F2ECDE] px-16 py-2 font-bold text-black hover:bg-[#cecbc2]">Load more</button>
+                    <button className="rounded bg-[#F2ECDE] px-16 py-2 font-bold text-black hover:bg-[#cecbc2]">Load more</button>
                 </div>
             </div>
 

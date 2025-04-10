@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 
 class FoodItemResource extends Resource
 {
@@ -40,6 +42,7 @@ class FoodItemResource extends Resource
                     ->relationship('food_category', 'name'),
                 Forms\Components\Toggle::make('is_available')
                     ->required(),
+                SpatieMediaLibraryFileUpload::make('foodItem_image'),
             ]);
     }
 
@@ -68,6 +71,11 @@ class FoodItemResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                SpatieMediaLibraryImageColumn::make('food_images')
+                    ->collection('food_images')
+                    ->conversion('thumb')
+                    ->width(100)
+                    ->height(100),
             ])
             ->filters([
                 //

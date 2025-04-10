@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\FoodItem;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -10,6 +11,13 @@ Route::get('/', function () {
 Route::get('/faq', function () {
     return Inertia::render('faq');
 })->name('faq');
+
+Route::get('/menu', function () {
+    return Inertia::render('menu', [
+        'foodItems' => FoodItem::foodItemsWithMedia(),
+    ]);
+})->name('menu');
+
 
 
 require __DIR__ . '/settings.php';
