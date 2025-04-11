@@ -12,96 +12,38 @@ const subscriptions = [
     ],
 ];
 
-const Faq = () => {
-    const [openIndex, setOpenIndex] = useState(null);
-
-    const toggleFAQ = (index) => {
-        setOpenIndex(openIndex === index ? null : index); // toggle open/close
+const Faq = ({ faqs }) => {
+    const [openFaq, setOpenFaq] = useState(null);
+    const toggleFAQ = (faq) => {
+        setOpenFaq(faq === openFaq ? null : faq); // toggle open/close
     };
 
     return (
         <div className="bg-[#FFF9EA]">
             <h1 className="py-6 pt-40 pb-5 text-center text-6xl font-bold text-black">FREQUENTLY ASKED QUESTIONS</h1>
-            <section className="mx-auto mt-12 max-w-6xl px-5 py-8 md:py-20">
-                <h2 className="font-display pb-4 text-center text-4xl font-bold tracking-tight text-black uppercase">
-                    MY 100% FLEXIBLE SUBSCRIPTION
-                </h2>
-                <div className="flex w-full flex-col text-black">
-                    {subscriptions &&
-                        subscriptions.map((value, index) => (
-                            <div key={index} className="border-black">
-                                <button
-                                    onClick={() => toggleFAQ(index)}
-                                    className="flex w-full cursor-pointer justify-between border-b-2 py-3 text-left"
-                                >
-                                    <span>{value[0]}</span>
-                                    <span>{openIndex === index ? '-' : '+'}</span>
-                                </button>
-                                {openIndex === index && <div className="pt-2 pb-4 text-base">{value[1]}</div>}
-                            </div>
-                        ))}
-                </div>
-            </section>
-            <section className="mx-auto mt-12 max-w-6xl px-5 py-8 md:py-20">
-                <h2 className="font-display pb-4 text-center text-4xl font-bold tracking-tight text-black uppercase">
-                    MY 100% FLEXIBLE SUBSCRIPTION
-                </h2>
-                <div className="flex w-full flex-col text-black">
-                    {subscriptions &&
-                        subscriptions.map((value, index) => (
-                            <div key={index} className="border-black">
-                                <button
-                                    onClick={() => toggleFAQ(index)}
-                                    className="flex w-full cursor-pointer justify-between border-b-2 py-3 text-left"
-                                >
-                                    <span>{value[0]}</span>
-                                    <span>{openIndex === index ? '-' : '+'}</span>
-                                </button>
-                                {openIndex === index && <div className="pt-2 pb-4 text-base">{value[1]}</div>}
-                            </div>
-                        ))}
-                </div>
-            </section>
-            <section className="mx-auto mt-12 max-w-6xl px-5 py-8 md:py-20">
-                <h2 className="font-display pb-4 text-center text-4xl font-bold tracking-tight text-black uppercase">
-                    MY 100% FLEXIBLE SUBSCRIPTION
-                </h2>
-                <div className="flex w-full flex-col text-black">
-                    {subscriptions &&
-                        subscriptions.map((value, index) => (
-                            <div key={index} className="border-black">
-                                <button
-                                    onClick={() => toggleFAQ(index)}
-                                    className="flex w-full cursor-pointer justify-between border-b-2 py-3 text-left"
-                                >
-                                    <span>{value[0]}</span>
-                                    <span>{openIndex === index ? '-' : '+'}</span>
-                                </button>
-                                {openIndex === index && <div className="pt-2 pb-4 text-base">{value[1]}</div>}
-                            </div>
-                        ))}
-                </div>
-            </section>
-            <section className="mx-auto mt-12 max-w-6xl px-5 py-8 md:py-20">
-                <h2 className="font-display pb-4 text-center text-4xl font-bold tracking-tight text-black uppercase">
-                    MY 100% FLEXIBLE SUBSCRIPTION
-                </h2>
-                <div className="flex w-full flex-col text-black">
-                    {subscriptions &&
-                        subscriptions.map((value, index) => (
-                            <div key={index} className="border-black">
-                                <button
-                                    onClick={() => toggleFAQ(index)}
-                                    className="flex w-full cursor-pointer justify-between border-b-2 py-3 text-left"
-                                >
-                                    <span>{value[0]}</span>
-                                    <span>{openIndex === index ? '-' : '+'}</span>
-                                </button>
-                                {openIndex === index && <div className="pt-2 pb-4 text-base">{value[1]}</div>}
-                            </div>
-                        ))}
-                </div>
-            </section>
+
+            {faqs &&
+                faqs.map((faq, index) => (
+                    <section className="mx-auto mt-12 max-w-6xl px-5 py-8 md:py-20">
+                        <h2 className="font-display pb-4 text-center text-4xl font-bold tracking-tight text-black uppercase">{faq.name}</h2>
+                        <div className="flex w-full flex-col text-black">
+                            {faq.faqs &&
+                                faq.faqs.map((value, index) => (
+                                    <div key={index} className="border-black">
+                                        <button
+                                            onClick={() => toggleFAQ(value)}
+                                            className="flex w-full cursor-pointer justify-between border-b-2 py-3 text-left"
+                                        >
+                                            <span>{value.question}</span>
+                                            <span>{openFaq === value ? '-' : '+'}</span>
+                                        </button>
+                                        {openFaq === value && <div className="pt-2 pb-4 text-base">{value.answer}</div>}
+                                    </div>
+                                ))}
+                        </div>
+                    </section>
+                ))}
+
             <section id="contact" className="mt-12 pb-12">
                 <div className="mx-auto max-w-6xl bg-[#f9f1de] p-8 text-black">
                     <h3 className="mb-8 text-center text-3xl font-bold">Get in touch with us</h3>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Faq;
+use App\Models\FaqCategory;
 use App\Models\FoodItem;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -9,7 +11,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/faq', function () {
-    return Inertia::render('faq');
+    return Inertia::render('faq', [
+        'faqs' => FaqCategory::with('faqs')->get(),
+    ]);
 })->name('faq');
 
 Route::get('/menu', function () {
