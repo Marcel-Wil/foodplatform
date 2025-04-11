@@ -6,39 +6,41 @@ const navbar = () => {
         setMobileMenuOpen(!isMobileMenuOpen);
     };
     return (
-        <nav className="fixed flex w-full items-center justify-between gap-16 bg-[#FFF9EA] px-6 py-3">
-            <div className="flex gap-16">
-                <a href="/" className="hidden sm:block">
-                    <img src="/images/crowdcooks.svg" alt="" />
-                </a>
+        <nav className="fixed flex w-full flex-col items-center justify-between bg-[#FFF9EA] px-6 py-3 sm:flex-row sm:gap-16">
+            <div className="flex w-full gap-16">
+                <div className="flex w-full justify-between sm:justify-normal">
+                    <a href="/" className="">
+                        <img src="/images/crowdcooks.svg" alt="" />
+                    </a>
 
-                {/* Mobile hamburger icon */}
-                <div className="sm:hidden" onClick={toggleMobileMenu}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="size-6 cursor-pointer"
-                    >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </div>
+                    {/* Mobile hamburger icon */}
+                    <div className="sm:hidden" onClick={toggleMobileMenu}>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="size-6 cursor-pointer"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </div>
 
-                <div className="hidden gap-8 sm:block sm:flex">
-                    <a href="/menu" className="text-xl font-bold text-black hover:underline">
-                        Menu
-                    </a>
-                    <a href="/plan" className="text-xl font-bold text-black hover:underline">
-                        Plans
-                    </a>
-                    <a href="/faq" className="text-xl font-bold text-black hover:underline">
-                        Faq
-                    </a>
-                    <a href="/contact" className="text-xl font-bold text-black hover:underline">
-                        Contact us
-                    </a>
+                    <div className="hidden gap-8 sm:block sm:flex sm:pl-10">
+                        <a href="/menu" className="text-xl font-bold text-black hover:underline">
+                            Menu
+                        </a>
+                        <a href="/plan" className="text-xl font-bold text-black hover:underline">
+                            Plans
+                        </a>
+                        <a href="/faq" className="text-xl font-bold text-black hover:underline">
+                            Faq
+                        </a>
+                        <a href="/contact" className="text-xl font-bold text-black hover:underline">
+                            Contact us
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -51,11 +53,22 @@ const navbar = () => {
 
             {/* Mobile Menu (separate from flex container) */}
             <div className={`w-full sm:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
-                <div className="flex flex-col space-y-4 bg-white py-4 text-center text-base leading-6">
-                    <a href="/">Home</a>
-                    <a href="/contact">Contact</a>
-                    <a href="/about">About</a>
-                    <a href="/register">Sign Up</a>
+                <div className="flex flex-col space-y-4 py-4 text-center text-base leading-6">
+                    <a href="/" className="hover:underline">
+                        Home
+                    </a>
+                    <a href="/menu" className="hover:underline">
+                        Menu
+                    </a>
+                    <a href="/plans" className="hover:underline">
+                        Plans
+                    </a>
+                    <a href="/faq" className="hover:underline">
+                        Faq
+                    </a>
+                    <a href="/login" className="hover:underline">
+                        Login
+                    </a>
                 </div>
             </div>
         </nav>
