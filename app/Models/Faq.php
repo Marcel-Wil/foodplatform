@@ -13,7 +13,6 @@ class Faq extends Model
     protected $fillable = [
         'question',
         'answer',
-        'category',
         'faq_category_id'
     ];
 
