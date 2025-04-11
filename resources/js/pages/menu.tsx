@@ -1,13 +1,10 @@
 import Layout from '../layouts/main-layout';
-import React from 'react'
-
 
 const menu = ({ foodItems }) => {
     console.log(foodItems);
-    
 
     return (
-        <div className='bg-[#FFF9EA]'>
+        <div className="bg-[#FFF9EA]">
             {/* discount banner */}
             <div className="pt-12"></div>
             <div className="mt-[6px] w-full bg-[#FF7A3D] p-2">
@@ -15,19 +12,17 @@ const menu = ({ foodItems }) => {
             </div>
 
             {/* menu of the week */}
-            <div className='bg-[#F9F1DE] px-5 py-12'>
-                <div className='pt-8'>
-                    <h1 className='text-center tracking-tight font-bold text-5xl uppercase mb-6'>
-                        Menu of the week
-                    </h1>
-                    <div className='flex items-center justify-center gap-4 mt-6'>
+            <div className="bg-[#F9F1DE] px-5 py-12">
+                <div className="pt-8">
+                    <h1 className="mb-6 text-center text-5xl font-bold tracking-tight uppercase">Menu of the week</h1>
+                    <div className="mt-6 flex items-center justify-center gap-4">
                         <a href="">
-                            <button className='uppercase border-2 border-black px-5 py-3 rounded font-bold hover:text-[#F9F1DE] hover:bg-black text-lg'>
+                            <button className="rounded border-2 border-black px-5 py-3 text-lg font-bold uppercase hover:bg-black hover:text-[#F9F1DE]">
                                 choose plan
                             </button>
                         </a>
                         <a href="">
-                            <button className='uppercase bg-black font-bold border-2 border-black px-5 py-3 text-[#F9F1DE] rounded text-lg hover:bg-[#F9F1DE] hover:text-black'>
+                            <button className="rounded border-2 border-black bg-black px-5 py-3 text-lg font-bold text-[#F9F1DE] uppercase hover:bg-[#F9F1DE] hover:text-black">
                                 login
                             </button>
                         </a>
@@ -36,27 +31,19 @@ const menu = ({ foodItems }) => {
             </div>
 
             {/* grid with fooditems */}
-            <div className='max-w-screen-xl mx-auto mt-8'>
+            <div className="mx-auto mt-8 max-w-screen-xl">
                 <div className="grid grid-cols-3 gap-4">
-                {foodItems.map((foodItem) => (
-                    <div key={foodItem.id} className="">
-                    <img
-                        src="/images/pancakes.jpg"
-                        alt={foodItem.name}
-                        className="w-[384px] h-[384px] object-cover"
-                    />
-                    <h2 className="mt-2 text-lg font-semibold text-center">
-                        {foodItem.name}
-                    </h2>
-                    </div>
-                ))}
+                    {foodItems.map((foodItem) => (
+                        <div key={foodItem.id} className="">
+                            <img src="/images/pancakes.jpg" alt={foodItem.name} className="h-[384px] w-[384px] object-cover" />
+                            <h2 className="mt-2 text-center text-lg font-semibold">{foodItem.name}</h2>
+                        </div>
+                    ))}
                 </div>
             </div>
-
-
         </div>
     );
-}
+};
 
 menu.layout = (page) => <Layout children={page} />;
-export default menu
+export default menu;
