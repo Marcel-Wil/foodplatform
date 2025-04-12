@@ -145,7 +145,7 @@ const Faq = ({ faqs }) => {
                                 </svg>
                             </div>
                         </div>
-                        <img src="images/contact.png" className="h-96 object-contain"></img>
+                        <img src="images/chef.jpg" className="h-96 object-contain"></img>
                     </div>
                 </div>
             </section>
