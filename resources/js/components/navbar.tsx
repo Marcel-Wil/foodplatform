@@ -1,10 +1,17 @@
+import { router, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 
 const navbar = () => {
+    const { auth } = usePage().props;
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!isMobileMenuOpen);
     };
+
+    const logout = () => {
+        router.post('/logout');
+    };
+
     return (
         <nav className="fixed flex w-full flex-col items-center justify-between bg-[#FFF9EA] px-6 py-3 sm:flex-row sm:gap-16">
             <div className="flex w-full gap-16">
@@ -45,9 +52,16 @@ const navbar = () => {
             </div>
 
             <div className="hidden gap-8 sm:block sm:flex">
-                <a href="/login" className="text-xl font-bold text-black">
-                    Login
-                </a>
+                {auth.user ? (
+                    <button onClick={logout} className="text-xl font-bold text-black hover:cursor-pointer">
+                        Logout
+                    </button>
+                ) : (
+                    <a href="/login" className="text-xl font-bold text-black">
+                        Login
+                    </a>
+                )}
+
                 <button className="text-xl font-bold text-black">EN</button>
             </div>
 
