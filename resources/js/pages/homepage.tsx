@@ -10,14 +10,14 @@ const homepage = () => {
             </div>
 
             {/* picture on the left + order now button on the right */}
-            <div className="flex">
-                <div className="h-[60dvh] w-1/2">
+            <div className="flex flex-col sm:flex-row">
+                <div className="h-[30dvh] sm:h-[60dvh] w-full sm:w-1/2">
                     <img className="h-full w-full" src="/images/homepage1.jpg" alt="" />
                 </div>
 
-                <div className="h-[60dvh] w-1/2 bg-[#FFF9EA]">
-                    <div className="flex h-full w-full flex-col items-center justify-center text-center">
-                        <img className="mb-8 w-96" src="/images/crowdcooks.svg" />
+                <div className="sm:h-[60dvh] w-full sm:w-1/2 bg-[#FFF9EA] mt-12 mb-12 sm:mt-0 sm:mb-0">
+                    <div className="flex h-full flex-col items-center justify-center text-center">
+                        <img className="mb-8 w-60 sm:w-96" src="/images/crowdcooks.svg" />
                         <h1 className="mb-4 font-sans text-6xl text-black uppercase">Fresh & local</h1>
                         <p className="font-display mb-8 text-4xl font-bold tracking-tight text-black uppercase">Your ready-to-eat mealbox</p>
                         <button className="rounded border-2 border-black px-5 py-3 text-xl font-bold text-black uppercase hover:bg-black hover:text-[#FFF9EA]">
@@ -33,7 +33,7 @@ const homepage = () => {
             </div>
 
             {/* videos banner */}
-            <div className="mx-auto my-12 grid max-w-6xl grid-cols-3 gap-10 bg-[#FFF9EA] px-5">
+            <div className="mx-auto my-12 grid max-w-6xl grid-cols-1 sm:grid-cols-3 gap-10 bg-[#FFF9EA] px-5">
                 <div className="mx-auto flex max-w-xs flex-col items-center">
                     <video className="w-fit max-w-[200px]" autoPlay loop muted src="/images/video1.mp4"></video>
                     <p className="mt-10 text-lg leading-tight font-bold text-black">
@@ -69,7 +69,7 @@ const homepage = () => {
             </div>
 
             {/* 3 pictures */}
-            <div className="mx-auto grid max-w-6xl grid-cols-3 gap-6 px-4 py-12">
+            <div className="mx-auto grid max-w-6xl grid-cols-1 sm:grid-cols-3 gap-6 px-4 py-12">
                 <div>
                     <img src="/images/image1.jpg" alt="" />
                     <p className="text-center text-lg leading-tight font-bold text-black">
@@ -104,16 +104,16 @@ const homepage = () => {
                 {/* facebook reviews */}
                 <div className="mb-8 text-center text-xl font-extrabold text-black">Facebook Reviews</div>
 
-                <div className="mx-auto mb-8 grid max-w-[1135px] grid-cols-4 gap-6">
-                    <div className="h-[289px] w-[265px] bg-[#F9F1DE]"></div>
-                    <div className="h-[289px] w-[265px] bg-[#F9F1DE]"></div>
-                    <div className="h-[289px] w-[265px] bg-[#F9F1DE]"></div>
-                    <div className="h-[289px] w-[265px] bg-[#F9F1DE]"></div>
+                <div className="mx-auto mb-8 grid max-w-sm sm:max-w-[1135px] grid-cols-1 sm:grid-cols-4 gap-6">
+                    <div className="h-[289px] sm:w-[265px] bg-[#F9F1DE]"></div>
+                    <div className="h-[289px] sm:w-[265px] bg-[#F9F1DE]"></div>
+                    <div className="h-[289px] sm:w-[265px] bg-[#F9F1DE]"></div>
+                    <div className="h-[289px] sm:w-[265px] bg-[#F9F1DE]"></div>
 
+                    {/* <div className="h-[289px] w-[265px] bg-[#F9F1DE]"></div>
                     <div className="h-[289px] w-[265px] bg-[#F9F1DE]"></div>
                     <div className="h-[289px] w-[265px] bg-[#F9F1DE]"></div>
-                    <div className="h-[289px] w-[265px] bg-[#F9F1DE]"></div>
-                    <div className="h-[289px] w-[265px] bg-[#F9F1DE]"></div>
+                    <div className="h-[289px] w-[265px] bg-[#F9F1DE]"></div> */}
                 </div>
 
                 {/* load more */}
@@ -123,8 +123,8 @@ const homepage = () => {
             </div>
 
             {/* text + img */}
-            <div className="flex w-full">
-                <div className="max-h-[60dvh] w-1/2 bg-[#FCDB14]">
+            <div className="flex flex-col sm:flex-row w-full">
+                <div className="max-h-[60dvh] w-full sm:w-1/2 bg-[#FCDB14]">
                     <div className="flex h-full w-full flex-col items-center justify-center py-12 text-center text-black">
                         <div className="pb-6 text-4xl font-extrabold tracking-tight uppercase">Delivery area</div>
                         <div className="flex flex-col pb-4 text-xl font-extrabold">
@@ -142,7 +142,7 @@ const homepage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="max-h-[60dvh] w-1/2">
+                <div className="max-h-[60dvh] w-full sm:w-1/2">
                     <img className="h-full w-full" src="/images/image4.png" alt="" />
                 </div>
             </div>
