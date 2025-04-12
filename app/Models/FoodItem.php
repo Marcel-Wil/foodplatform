@@ -28,7 +28,7 @@ class FoodItem extends Model implements HasMedia
         if ($optionalFoodItems) {
             $foodItems = $optionalFoodItems;
         } else {
-            $foodItems = FoodItem::all();
+            $foodItems = FoodItem::with('food_category')->get();
         }
         $foodItemsWithMedia = $foodItems->map(function ($foodItem) use ($passedFrom) {
             if ($passedFrom) {

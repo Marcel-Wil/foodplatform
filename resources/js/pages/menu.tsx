@@ -2,7 +2,6 @@ import Layout from '../layouts/main-layout';
 
 const menu = ({ foodItems }) => {
     console.log(foodItems);
-
     return (
         <div className="bg-[#FFF9EA]">
             {/* discount banner */}
@@ -34,9 +33,34 @@ const menu = ({ foodItems }) => {
             <div className="mx-auto mt-8 max-w-screen-xl">
                 <div className="grid grid-cols-3 gap-4">
                     {foodItems.map((foodItem) => (
-                        <div key={foodItem.id} className="">
-                            <img src="/images/pancakes.jpg" alt={foodItem.name} className="h-[384px] w-[384px] object-cover" />
-                            <h2 className="mt-2 text-center text-lg font-semibold">{foodItem.name}</h2>
+                        <div
+                            key={foodItem.id}
+                            className={`group relative h-[384px] w-[384px] ${foodItem.food_category.name === 'Vegan' ? 'hover:bg-green-600' : 'hover:bg-red-500'}`}
+                        >
+                            <img
+                                src="/images/pancakes.jpg"
+                                alt={foodItem.name}
+                                className="h-full w-full transition-opacity duration-300 group-hover:opacity-0"
+                            />
+                            {/* Overlay content that becomes visible on hover */}
+                            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                <h2 className="text-lg font-semibold text-gray-800">{foodItem.name}</h2>
+                                {foodItem.food_category.name === 'Vegan' ? (
+                                    <div className="absolute bottom-0 left-0 mb-2 ml-2 rounded-full border border-green-700 bg-green-500 px-4 py-1 text-white hover:bg-green-600">
+                                        {foodItem.food_category.name}
+                                    </div>
+                                ) : (
+                                    <div className="absolute bottom-0 left-0 mb-2 ml-2 rounded-full border border-red-700 bg-red-500 px-4 py-1 text-white hover:bg-red-600">
+                                        {foodItem.food_category.name}
+                                    </div>
+                                )}
+
+                                <p className="mt-2 text-sm text-black">${foodItem.price.toFixed(2)}</p>
+                            </div>
+                            {/* Keep the + button always visible */}
+                            <span className="absolute right-2 bottom-2 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-green-500 text-white transition-colors hover:bg-green-600">
+                                +
+                            </span>
                         </div>
                     ))}
                 </div>
