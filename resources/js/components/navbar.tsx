@@ -16,8 +16,9 @@ const Navbar = () => {
         <nav className="fixed flex w-full flex-col items-center justify-between bg-[#FFF9EA] px-6 py-3 sm:flex-row sm:gap-16">
             <div className="flex w-full gap-16">
                 <div className="flex w-full justify-between sm:justify-normal">
-                    <a href="/" className="">
-                        <img src="/images/crowdcooks.svg" alt="" />
+                    <a href="/" className="text-xl font-extrabold">
+                        {/* <img src="/images/crowdcooks.svg" alt="" /> */}
+                        Aurora
                     </a>
 
                     {/* Mobile hamburger icon */}
@@ -37,9 +38,6 @@ const Navbar = () => {
                     <div className="hidden gap-8 sm:block sm:flex sm:pl-10">
                         <a href="/menu" className="text-xl font-bold text-black hover:underline">
                             Menu
-                        </a>
-                        <a href="/plan" className="text-xl font-bold text-black hover:underline">
-                            Plans
                         </a>
                         <a href="/faq" className="text-xl font-bold text-black hover:underline">
                             Faq

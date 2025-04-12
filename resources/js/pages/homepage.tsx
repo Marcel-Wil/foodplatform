@@ -4,20 +4,21 @@ const homepage = () => {
     return (
         <div className="bg-[#FFF9EA]">
             {/* discount banner */}
-            <div className="pt-12"></div>
+            {/* <div className="pt-12"></div>
             <div className="mt-[6px] w-full bg-[#FF7A3D] p-2">
                 <p className="text-center text-sm text-white">40€ discount (4x10€) with code B40</p>
-            </div>
+            </div> */}
 
             {/* picture on the left + order now button on the right */}
-            <div className="flex flex-col sm:flex-row">
+            <div className="flex flex-col sm:flex-row sm:items-center mt-13">
                 <div className="h-[30dvh] sm:h-[60dvh] w-full sm:w-1/2">
-                    <img className="h-full w-full" src="/images/homepage1.jpg" alt="" />
+                    <img className="h-full w-full" src="/images/mealprep.webp" alt="" />
                 </div>
 
                 <div className="sm:h-[60dvh] w-full sm:w-1/2 bg-[#FFF9EA] mt-12 mb-12 sm:mt-0 sm:mb-0">
                     <div className="flex h-full flex-col items-center justify-center text-center">
-                        <img className="mb-8 w-60 sm:w-96" src="/images/crowdcooks.svg" />
+                        {/* <img className="mb-8 w-60 sm:w-96" src="/images/crowdcooks.svg" /> */}
+                        <h1 className='text-8xl font-extrabold'>Aurora</h1>
                         <h1 className="mb-4 font-sans text-6xl text-black uppercase">Fresh & local</h1>
                         <p className="font-display mb-8 text-4xl font-bold tracking-tight text-black uppercase">Your ready-to-eat mealbox</p>
                         <button className="rounded border-2 border-black px-5 py-3 text-xl font-bold text-black uppercase hover:bg-black hover:text-[#FFF9EA]">
@@ -26,9 +27,49 @@ const homepage = () => {
                     </div>
                 </div>
             </div>
+            
+            {/* menu of the week */}
+            <div className="bg-[#3B8CCE]">
+                <h3 className="py-12 text-center text-4xl font-extrabold text-black uppercase">menu of the week</h3>
+            </div>
+
+            {/* 3 pictures */}
+            <div className="mx-auto grid max-w-sm sm:max-w-6xl grid-cols-1 sm:grid-cols-3 gap-6 px-4 my-12">
+                <div>
+                    <img className='w-[357px] h-[357px]' src="/images/avocadoToast.jpg" alt="" />
+                    <p className="text-center text-lg leading-tight font-bold text-black">
+                        Avocado Toast
+                    </p>
+                </div>
+                <div>
+                    <img className='w-[357px] h-[357px]' src="/images/spicyRamen.jpg" alt="" />
+                    <p className="text-center text-lg leading-tight font-bold text-black">Spicy Ramen</p>
+                </div>
+                <div>
+                    <img className='w-[357px] h-[357px]' src="/images/margheritaPizza.avif" alt="" />
+                    <p className="text-center text-lg leading-tight font-bold text-black">Margherita Pizza</p>
+                </div>
+            </div>
+
+            {/* view full menu */}
+            {/* <div className="bg-[#F9F1DE] py-9 text-center">
+                <a href="/plan">
+                    <button className="rounded border-2 border-black p-2 px-5 py-3 text-xl font-extrabold text-black uppercase hover:bg-black hover:text-[#FFF9EA]">
+                        View full menu
+                    </button>
+                </a>
+            </div> */}
+
+            <div className="w-full px-5 py-12 text-center">
+                <a href="/menu">
+                    <button className="rounded border-2 border-black p-2 px-5 py-3 text-xl font-extrabold text-black hover:bg-black hover:text-[#FFF9EA]">
+                        View full menu
+                    </button>
+                </a>
+            </div>
 
             {/* how it works banner */}
-            <div className="bg-[#05AA02]">
+            <div className="bg-[#3B8CCE]">
                 <h3 className="py-12 text-center text-4xl font-extrabold text-black uppercase">How it works</h3>
             </div>
 
@@ -63,43 +104,16 @@ const homepage = () => {
                 </a>
             </div>
 
-            {/* menu of the week */}
+            {/* reviews banner */}
             <div className="bg-[#3B8CCE]">
-                <h3 className="py-12 text-center text-4xl font-extrabold text-black uppercase">menu of the week</h3>
-            </div>
-
-            {/* 3 pictures */}
-            <div className="mx-auto grid max-w-6xl grid-cols-1 sm:grid-cols-3 gap-6 px-4 py-12">
-                <div>
-                    <img src="/images/image1.jpg" alt="" />
-                    <p className="text-center text-lg leading-tight font-bold text-black">
-                        Chicken brochette with sweet potato mash, sweet and sour sauce, and bell pepper medley
-                    </p>
-                </div>
-                <div>
-                    <img src="/images/image2.jpg" alt="" />
-                    <p className="text-center text-lg leading-tight font-bold text-black">Maroccan Bulgur with falafel</p>
-                </div>
-                <div>
-                    <img src="/images/image3.jpg" alt="" />
-                    <p className="text-center text-lg leading-tight font-bold text-black">Fried rice with homemade Korean chicken</p>
-                </div>
-            </div>
-
-            {/* view full menu */}
-            <div className="bg-[#F9F1DE] py-9 text-center">
-                <a href="/plan">
-                    <button className="rounded border-2 border-black p-2 px-5 py-3 text-xl font-extrabold text-black uppercase hover:bg-black hover:text-[#FFF9EA]">
-                        View full menu
-                    </button>
-                </a>
+                <h3 className="py-12 text-center text-4xl font-extrabold text-black uppercase">Reviews</h3>
             </div>
 
             <div className="pt-12 pb-24">
                 {/* text */}
-                <div className="mx-auto max-w-3xl pb-8 text-center text-5xl font-extrabold tracking-tight text-black uppercase">
+                {/* <div className="mx-auto max-w-3xl pb-8 text-center text-5xl font-extrabold tracking-tight text-black uppercase">
                     A WHOPPING 250.000 MEALS HAVE ALREADY BEEN DELIVERED!
-                </div>
+                </div> */}
 
                 {/* facebook reviews */}
                 <div className="mb-8 text-center text-xl font-extrabold text-black">Facebook Reviews</div>
@@ -124,7 +138,7 @@ const homepage = () => {
 
             {/* text + img */}
             <div className="flex flex-col sm:flex-row w-full">
-                <div className="max-h-[60dvh] w-full sm:w-1/2 bg-[#FCDB14]">
+                <div className="max-h-[60dvh] w-full bg-orange-400">
                     <div className="flex h-full w-full flex-col items-center justify-center py-12 text-center text-black">
                         <div className="pb-6 text-4xl font-extrabold tracking-tight uppercase">Delivery area</div>
                         <div className="flex flex-col pb-4 text-xl font-extrabold">
@@ -142,9 +156,9 @@ const homepage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="max-h-[60dvh] w-full sm:w-1/2">
+                {/* <div className="max-h-[60dvh] w-full sm:w-1/2">
                     <img className="h-full w-full" src="/images/image4.png" alt="" />
-                </div>
+                </div> */}
             </div>
         </div>
     );
