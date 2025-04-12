@@ -30,8 +30,8 @@ const menu = ({ foodItems }) => {
             </div>
 
             {/* grid with fooditems */}
-            <div className="mx-auto mt-8 max-w-screen-xl">
-                <div className="grid grid-cols-3 gap-4">
+            <div className="mx-auto mt-8 max-w-sm sm:max-w-screen-xl">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {foodItems.map((foodItem) => (
                         <div
                             key={foodItem.id}
@@ -55,7 +55,7 @@ const menu = ({ foodItems }) => {
                                     </div>
                                 )}
 
-                                <p className="mt-2 text-sm text-black">${foodItem.price.toFixed(2)}</p>
+                                <p className="mt-2 text-sm text-black">${parseFloat(foodItem.price).toFixed(2)}</p>
                             </div>
                             {/* Keep the + button always visible */}
                             <span className="absolute right-2 bottom-2 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-green-500 text-white transition-colors hover:bg-green-600">

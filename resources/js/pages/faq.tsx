@@ -47,8 +47,8 @@ const Faq = ({ faqs }) => {
             <section id="contact" className="mt-12 pb-12">
                 <div className="mx-auto max-w-6xl bg-[#f9f1de] p-8 text-black">
                     <h3 className="mb-8 text-center text-3xl font-bold">Get in touch with us</h3>
-                    <div className="flex justify-between">
-                        <div className="flex w-1/2 flex-col space-y-8 px-4 py-2">
+                    <div className="sm:flex sm:justify-between">
+                        <div className="flex flex-col w-full sm:w-1/2 space-y-8 px-4 py-2">
                             <p className="text-xl font-bold">Contact Information</p>
                             <div className="flex w-1/2 flex-col space-y-1">
                                 <div className="flex space-x-2">
