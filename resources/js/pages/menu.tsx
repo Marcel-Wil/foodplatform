@@ -1,7 +1,15 @@
+import { usePage } from '@inertiajs/react';
 import Layout from '../layouts/main-layout';
 
 const menu = ({ foodItems }) => {
-    console.log(foodItems);
+    const { auth } = usePage().props;
+    const addToCart = () => {
+        //only logged in users can put stuff into cart
+        if (!auth.user) {
+            window.location.href = '/login';
+        }
+        //handle adding to cart logic here:
+    };
     return (
         <div className="bg-[#FFF9EA]">
             {/* discount banner */}
@@ -31,7 +39,7 @@ const menu = ({ foodItems }) => {
 
             {/* grid with fooditems */}
             <div className="mx-auto mt-8 max-w-sm sm:max-w-screen-xl">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                     {foodItems.map((foodItem) => (
                         <div
                             key={foodItem.id}
@@ -58,9 +66,12 @@ const menu = ({ foodItems }) => {
                                 <p className="mt-2 text-sm text-black">${parseFloat(foodItem.price).toFixed(2)}</p>
                             </div>
                             {/* Keep the + button always visible */}
-                            <span className="absolute right-2 bottom-2 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-green-500 text-white transition-colors hover:bg-green-600">
+                            <button
+                                onClick={addToCart}
+                                className="absolute right-2 bottom-2 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-green-500 text-white transition-colors hover:bg-green-600"
+                            >
                                 +
-                            </span>
+                            </button>
                         </div>
                     ))}
                 </div>

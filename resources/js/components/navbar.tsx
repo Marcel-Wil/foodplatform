@@ -1,5 +1,6 @@
 import { router, usePage } from '@inertiajs/react';
 import { useState } from 'react';
+import { Cart } from './cart';
 
 const Navbar = () => {
     const { auth } = usePage().props;
@@ -10,6 +11,14 @@ const Navbar = () => {
 
     const logout = () => {
         router.post('/logout');
+    };
+
+    const openCart = () => {
+        //only logged in user can go to cart page
+        if (!auth.user) {
+            window.location.href = '/login';
+        }
+        //handle going to cart/checkout page:
     };
 
     return (
@@ -50,6 +59,9 @@ const Navbar = () => {
             </div>
 
             <div className="hidden gap-8 sm:block sm:flex">
+                <button onClick={openCart}>
+                    <Cart />
+                </button>
                 {auth.user ? (
                     <button onClick={logout} className="text-xl font-bold text-black hover:cursor-pointer">
                         Logout
