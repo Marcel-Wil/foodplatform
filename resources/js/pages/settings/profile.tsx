@@ -1,6 +1,8 @@
 import Layout from '@/layouts/main-layout';
+import { usePage } from '@inertiajs/react';
 
 const profile = () => {
+    const { auth } = usePage().props;
     return (
         <div className="mt-13 flex flex-col font-bold">
             <div className="flex space-x-14 bg-[#FFF9EA] md:pl-84">
@@ -16,8 +18,15 @@ const profile = () => {
                     <div className="flex flex-col">
                         <label className="mb-1 block text-sm font-medium">e-mail</label>
                         <div className="flex items-center gap-2">
-                            <input type="email" className="w-full rounded-sm border border-black bg-white px-3 py-2" required />
-                            <button className="rounded-sm border border-black bg-gray-100 px-3 py-2 text-sm hover:bg-gray-200">Change</button>
+                            <input
+                                type="email"
+                                className="w-full rounded-sm border border-black bg-white px-3 py-2"
+                                required
+                                placeholder={auth.user.email}
+                            />
+                            <button className="rounded-sm border border-black bg-gray-100 px-3 py-2 text-sm hover:cursor-pointer hover:bg-gray-200">
+                                Change
+                            </button>
                         </div>
                     </div>
 
@@ -34,7 +43,9 @@ const profile = () => {
                         <label className="mb-1 block text-sm font-medium">Confirm Password</label>
                         <div className="flex items-center gap-2">
                             <input type="password" className="w-full rounded-sm border border-black bg-white px-3 py-2" required />
-                            <button className="rounded-sm border border-black bg-gray-100 px-3 py-2 text-sm hover:bg-gray-200">Change</button>
+                            <button className="rounded-sm border border-black bg-gray-100 px-3 py-2 text-sm hover:cursor-pointer hover:bg-gray-200">
+                                Change
+                            </button>
                         </div>
                     </div>
 
@@ -42,8 +53,15 @@ const profile = () => {
                     <div className="flex flex-col">
                         <label className="mb-1 block text-sm font-medium">Address</label>
                         <div className="flex items-center gap-2">
-                            <input type="text" className="w-full rounded-sm border border-black bg-white px-3 py-2" required />
-                            <button className="rounded-sm border border-black bg-gray-100 px-3 py-2 text-sm hover:bg-gray-200">Change</button>
+                            <input
+                                type="text"
+                                className="w-full rounded-sm border border-black bg-white px-3 py-2"
+                                required
+                                placeholder={auth.address[0].street}
+                            />
+                            <button className="rounded-sm border border-black bg-gray-100 px-3 py-2 text-sm hover:cursor-pointer hover:bg-gray-200">
+                                Change
+                            </button>
                         </div>
                     </div>
                 </div>
