@@ -1,7 +1,7 @@
 import { router, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 
-const navbar = () => {
+const Navbar = () => {
     const { auth } = usePage().props;
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const toggleMobileMenu = () => {
@@ -89,4 +89,4 @@ const navbar = () => {
     );
 };
 
-export default navbar;
+export default Navbar;
