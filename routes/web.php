@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Models\Faq;
 use App\Models\FaqCategory;
 use App\Models\FoodItem;
@@ -21,6 +22,9 @@ Route::get('/menu', function () {
         'foodItems' => FoodItem::foodItemsWithMedia(),
     ]);
 })->name('menu');
+
+Route::post('/cart', [CartController::class, 'addProduct']);
+
 
 
 
