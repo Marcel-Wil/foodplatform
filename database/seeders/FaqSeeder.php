@@ -15,44 +15,46 @@ class FaqSeeder extends Seeder
     public function run(): void
     {
         //
-        $faq_categories = ['General', 'Billing', 'Technical Support', 'Account Management'];
+        $faq_categories = ['Ordering', 'Payments & Refunds', 'Delivery', 'Account & Security'];
+
         $faqs = [
-            'General' => [
-                'What is your service about?' => 'We provide cloud-based solutions to help businesses manage their digital infrastructure efficiently.',
-                'Where are you located?' => 'Our headquarters are in San Francisco, CA, but we operate globally.',
-                'Do you offer customer support?' => 'Yes, our support team is available 24/7 via email and chat.',
-                'Can I try your service before paying?' => 'Yes, we offer a 14-day free trial for all new users.',
-                'Is there a mobile app available?' => 'Yes, our service is accessible via iOS and Android apps.',
-                'What industries do you serve?' => 'We serve businesses across various industries including tech, finance, healthcare, and education.',
-                'Is your platform secure?' => 'Absolutely. We use industry-standard encryption and data protection protocols.',
+            'Ordering' => [
+                'How do I place an order?' => 'Simply browse the menu, add items to your cart, and proceed to checkout.',
+                'Can I schedule an order for later?' => 'Yes, you can choose a delivery time during checkout.',
+                'Can I customize my food order?' => 'Absolutely! Most items allow for customizations like spice level or add-ons.',
+                'Is there a minimum order amount?' => 'Some restaurants may set a minimum order value, which is shown at checkout.',
+                'Can I reorder my previous meals?' => 'Yes, your order history allows you to quickly reorder past meals.',
+                'Do you offer contactless delivery?' => 'Yes, just select the contactless option at checkout.',
+                'Can I cancel or change my order?' => 'Orders can be changed or canceled before the restaurant starts preparing it.',
             ],
-            'Billing' => [
-                'What payment methods do you accept?' => 'We accept major credit cards, PayPal, and wire transfers.',
-                'Do you offer refunds?' => 'Yes, we offer a 30-day money-back guarantee on all annual plans.',
-                'Can I change my billing cycle?' => 'Yes, you can switch between monthly and annual billing in your account settings.',
-                'How can I get an invoice?' => 'Invoices are emailed automatically and also available in your billing dashboard.',
-                'Are there any hidden fees?' => 'No, we believe in transparent pricing with no hidden charges.',
-                'Can I upgrade or downgrade my plan?' => 'Yes, you can change your plan at any time from your account dashboard.',
+            'Payments & Refunds' => [
+                'What payment methods do you accept?' => 'We accept credit/debit cards, Apple Pay, Google Pay, and PayPal.',
+                'Will I get a receipt after payment?' => 'Yes, a receipt is sent to your email and available in your account.',
+                'Can I use promo codes or coupons?' => 'Yes, promo codes can be entered at checkout if available.',
+                'How are refunds processed?' => 'Refunds are processed within 3–5 business days to your original payment method.',
+                'Are there any extra service fees?' => 'A small service and delivery fee may apply depending on the order.',
+                'Do you store my payment information?' => 'Only if you choose to save it, and it’s securely stored using encryption.',
             ],
-            'Technical Support' => [
-                'How do I report a bug?' => 'You can report bugs via our support portal or by emailing support@example.com.',
-                'What should I do if the site is down?' => 'Please check our status page first, then contact support if needed.',
-                'Do you provide API access?' => 'Yes, we offer RESTful APIs with full documentation.',
-                'Is there a developer sandbox environment?' => 'Yes, developers can request access to our sandbox environment for testing.',
-                'How long does it take to resolve issues?' => 'Most technical issues are resolved within 24 hours.',
-                'Do you support integrations with third-party apps?' => 'Yes, we integrate with tools like Slack, Zapier, and more.',
-                'Can I get help with custom configurations?' => 'Yes, our technical team is available for enterprise clients needing custom setups.',
+            'Delivery' => [
+                'How long does delivery take?' => 'Average delivery time is 30–45 minutes depending on the restaurant and location.',
+                'How can I track my delivery?' => 'Real-time tracking is available in the app once your order is out for delivery.',
+                'Do you deliver to my area?' => 'Enter your address to see available restaurants in your delivery zone.',
+                'What if my delivery is late?' => 'You can contact support through the app, and we’ll follow up with the delivery partner.',
+                'Can I tip the delivery driver?' => 'Yes, you can tip in-app during checkout or after delivery.',
+                'What happens if my order is incorrect?' => 'Please report the issue through the app and we’ll resolve it promptly.',
+                'Is delivery available 24/7?' => 'Delivery hours depend on restaurant availability in your area.',
             ],
-            'Account Management' => [
-                'How do I reset my password?' => 'Click on "Forgot Password" on the login screen to reset your password.',
-                'How can I delete my account?' => 'You can request account deletion from your settings or by contacting support.',
-                'Can I have multiple users on one account?' => 'Yes, team accounts support multiple user roles and permissions.',
-                'How do I update my profile information?' => 'Go to your account settings and click "Edit Profile".',
-                'Is it possible to recover a deleted account?' => 'We can recover accounts deleted within 30 days upon request.',
-                'How do I enable two-factor authentication?' => 'You can enable 2FA from your security settings using Google Authenticator or similar apps.',
-                'What do I do if I suspect unauthorized access?' => 'Change your password immediately and contact our support team.',
+            'Account & Security' => [
+                'How do I create an account?' => 'Sign up with your email or use a social login (Google, Apple, etc.).',
+                'I forgot my password. What should I do?' => 'Click "Forgot Password" on the login page to reset it.',
+                'Can I update my delivery address?' => 'Yes, go to your profile settings to manage addresses.',
+                'How do I delete my account?' => 'You can request deletion from account settings or contact support.',
+                'Is my personal information safe?' => 'Yes, we use encryption and follow industry standards to protect your data.',
+                'How do I enable notifications for order updates?' => 'Enable push or email notifications in your preferences.',
+                'Can I log in on multiple devices?' => 'Yes, your account can be accessed from multiple devices securely.',
             ],
         ];
+
 
         foreach ($faq_categories as $category) {
             //create FAQ category

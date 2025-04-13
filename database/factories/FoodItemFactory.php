@@ -16,19 +16,23 @@ class FoodItemFactory extends Factory
      */
     public function definition(): array
     {
+        $meals = [
+            ['BBQ Chicken', 1],
+            ['Grilled Beef Burger', 1],
+            ['Spicy Lamb Curry', 1],
+            ['Honey Garlic Chicken Wings', 1],
+            ['Teriyaki Salmon Bowl', 1],
+            ['Vegan Buddha Bowl', 2],
+            ['Tofu Stir Fry', 2],
+            ['Chickpea Shawarma Wrap', 2],
+            ['Vegan Mac & Cheese', 2],
+            ['Grilled Veggie Tacos', 2],
+        ];
+
+        $randomMeal = fake()->unique()->randomElement($meals);
         return [
-            'name' => fake()->unique()->randomElement([ //create max 10 otherwise error (unique)
-                'Margherita Pizza',
-                'Sushi Roll',
-                'Spicy Ramen',
-                'Chicken Tikka',
-                'Avocado Toast',
-                'Beef Burger',
-                'Vegan Salad',
-                'Pancake Stack',
-                'Tuna Sandwich',
-                'Chocolate Cake',
-            ]),
+            'name' => $randomMeal[0],
+            'food_category_id' => $randomMeal[1],
             'description' => fake()->sentence(),
             'price' => fake()->randomFloat(2, 5, 30), // price between 5.00 and 30.00
             'is_available' => True,

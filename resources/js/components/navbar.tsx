@@ -14,10 +14,10 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="fixed flex w-full flex-col items-center justify-between bg-[#f2da9c] px-6 py-3 sm:flex-row sm:gap-16">
+        <nav className="fixed z-50 flex w-full flex-col items-center justify-between bg-[#f2da9c] px-6 py-3 sm:flex-row sm:gap-16">
             <div className="flex w-full gap-16">
                 <div className="flex w-full justify-between sm:justify-normal">
-                    <a href="/" className="text-xl font-extrabold">
+                    <a href="/" className="text-4xl font-black">
                         {/* <img src="/images/crowdcooks.svg" alt="" /> */}
                         Aurora
                     </a>
@@ -36,15 +36,15 @@ const Navbar = () => {
                         </svg>
                     </div>
 
-                    <div className="hidden gap-8 sm:block sm:flex sm:pl-10">
+                    <div className="hidden gap-8 sm:block sm:flex sm:items-center sm:pl-10">
                         <a href="/menu" className="text-xl font-bold text-black hover:underline">
                             Menu
                         </a>
                         <a href="/faq" className="text-xl font-bold text-black hover:underline">
                             Faq
                         </a>
-                        <a href="/contact" className="text-xl font-bold text-black hover:underline">
-                            Contact us
+                        <a href="/faq#contact" className="text-xl font-bold text-black hover:underline">
+                            Contact
                         </a>
                     </div>
                 </div>

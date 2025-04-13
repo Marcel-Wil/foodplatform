@@ -54,7 +54,9 @@ const Checkout = ({ cartItems }) => {
                     {/* Cart total */}
                     <div className="mt-8 text-right">
                         <h2 className="text-xl font-bold">Cart Total: ${calculateCartTotal()}</h2>
-                        <button className="mt-2 mb-2 rounded-full bg-red-500 px-4 py-2 text-black hover:cursor-pointer">Order Now</button>
+                        <button className="my-2 rounded border-2 border-black px-5 py-2 text-xl font-extrabold text-black hover:cursor-pointer hover:bg-black hover:text-[#FFF9EA]">
+                            Order
+                        </button>
                     </div>
                 </div>
             )}
