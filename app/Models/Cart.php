@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -30,6 +31,26 @@ class Cart extends Model
     public function cartItems(): HasMany
     {
         return $this->hasMany(CartItem::class);
+    }
+
+    public static function getUserCartItems()
+    {
+        $user = User::where('id', '=', auth()->id())->first();
+        if (!$user) {
+            throw new AuthenticationException();
+        }
+
+        $cart = Cart::firstOrCreate(
+            ['user_id' => $user->id], // Condition to check
+            ['created_at' => now(), 'updated_at' => now()] // Default values if creating a new cart
+        );
+
+        $cart_items = CartItem::where('cart_id', $cart->id)
+            ->with('foodItem') // Eager load the related products
+            ->get();
+
+
+        return $cart_items;
     }
 
     public static function getTotalCartItems()

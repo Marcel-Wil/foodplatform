@@ -13,14 +13,6 @@ const Navbar = () => {
         router.post('/logout');
     };
 
-    const openCart = () => {
-        //only logged in user can go to cart page
-        if (!auth.user) {
-            window.location.href = '/login';
-        }
-        //handle going to cart/checkout page:
-    };
-
     return (
         <nav className="fixed flex w-full flex-col items-center justify-between bg-[#FFF9EA] px-6 py-3 sm:flex-row sm:gap-16">
             <div className="flex w-full gap-16">
@@ -59,9 +51,7 @@ const Navbar = () => {
             </div>
 
             <div className="hidden gap-8 sm:block sm:flex">
-                <button onClick={openCart}>
-                    <Cart />
-                </button>
+                <Cart />
                 {auth.user ? (
                     <button onClick={logout} className="text-xl font-bold text-black hover:cursor-pointer">
                         Logout

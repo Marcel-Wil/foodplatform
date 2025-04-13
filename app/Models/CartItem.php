@@ -25,4 +25,25 @@ class CartItem extends Model
     {
         return $this->belongsTo(FoodItem::class);
     }
+
+    //copied it from fooditem cba changing names
+    public static function cartItemsWithMedia($optionalFoodItems = null, $passedFrom = null)
+    {
+
+        if ($optionalFoodItems) {
+            $foodItems = $optionalFoodItems;
+        } else {
+            $foodItems = FoodItem::with('food_category')->get();
+        }
+        $foodItemsWithMedia = $foodItems->map(function ($foodItem) use ($passedFrom) {
+            if ($passedFrom) {
+                $foodItem->product->picture = $foodItem->foodItem->getFirstMediaUrl('foodItem_image');
+            } else {
+                $foodItem->picture = $foodItem->getFirstMediaUrl('foodItem_image');
+            }
+            return $foodItem;
+        });
+
+        return $foodItemsWithMedia;
+    }
 }

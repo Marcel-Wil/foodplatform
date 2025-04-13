@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Models\Cart;
 use App\Models\Faq;
 use App\Models\FaqCategory;
 use App\Models\FoodItem;
@@ -25,7 +26,11 @@ Route::get('/menu', function () {
 
 Route::post('/cart', [CartController::class, 'addProduct']);
 
-
+Route::get('/checkout', function () {
+    return Inertia::render('checkout', [
+        'cartItems' => Cart::getUserCartItems(),
+    ]);
+})->name('checkout');
 
 
 require __DIR__ . '/settings.php';
