@@ -14,7 +14,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="fixed flex w-full flex-col items-center justify-between bg-[#FFF9EA] px-6 py-3 sm:flex-row sm:gap-16">
+        <nav className="fixed flex w-full flex-col items-center justify-between bg-[#f2da9c] px-6 py-3 sm:flex-row sm:gap-16">
             <div className="flex w-full gap-16">
                 <div className="flex w-full justify-between sm:justify-normal">
                     <a href="/" className="text-xl font-extrabold">
