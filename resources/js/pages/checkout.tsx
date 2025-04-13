@@ -34,8 +34,14 @@ const Checkout = ({ cartItems }) => {
                             <div className="flex-1 md:ml-4">
                                 <h2 className="text-lg font-semibold">{item.food_item.name}</h2>
                                 <p className="text-sm text-gray-500">{item.food_item.description}</p>
-                                <div className="mt-2 text-sm text-gray-700">
-                                    Quantity: <span className="font-medium">{item.quantity}</span>
+                                <div className="flex flex-row space-x-4">
+                                    <div className="mt-2 text-sm text-gray-700">
+                                        Quantity: <span className="font-medium">{item.quantity}</span>
+                                    </div>
+                                    <div className="mt-2 flex flex-row space-x-3">
+                                        <span>-</span>
+                                        <span>+</span>
+                                    </div>
                                 </div>
                                 <div className="text-sm text-gray-700">
                                     Price per item: <span className="font-medium">${item.food_item.price}</span>
