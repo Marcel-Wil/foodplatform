@@ -32,4 +32,21 @@ class Cart extends Model
         return $this->hasMany(CartItem::class);
     }
 
+    public static function getTotalCartItems()
+    {
+        $user = User::where('id', '=', auth()->id())->first();
+        if (!$user) {
+            return 0;
+        }
+        $cart = Cart::firstOrCreate(
+            ['user_id' => $user->id], // Condition to check
+            ['created_at' => now(), 'updated_at' => now()] // Default values if creating a new cart
+        );
+
+        $cart_items = CartItem::where('cart_id', $cart->id)
+            ->with('foodItem') // Eager load the related products
+            ->get();
+        return $cart_items->count();
+    }
+
 }
