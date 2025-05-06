@@ -74,9 +74,7 @@ const Navbar = () => {
                     <a href="/menu" className="hover:underline">
                         Menu
                     </a>
-                    <a href="/plans" className="hover:underline">
-                        Plans
-                    </a>
+
                     <a href="/faq" className="hover:underline">
                         Faq
                     </a>
