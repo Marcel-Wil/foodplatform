@@ -15,7 +15,15 @@ const Footer = () => {
                 <div className="mx-auto flex w-3/4 justify-between">
                     <a href="#">Terms</a>
                     <p>Belgium, Anwerpen 2000 </p>
-                    <p>info@aurora.com</p>
+                    <div className="flex flex-row space-x-2">
+                        <p>wilczynskimarceli@gmail.com</p>
+                        <a href="terms" className="underline">
+                            Terms{' '}
+                        </a>
+                        <a href="privacy-policy" className="underline">
+                            Privacy & Policy
+                        </a>
+                    </div>
                 </div>
             </div>
         </footer>

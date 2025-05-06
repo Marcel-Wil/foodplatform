@@ -24,6 +24,15 @@ Route::get('/menu', function () {
     ]);
 })->name('menu');
 
+Route::get('/terms', function () {
+    return Inertia::render('terms');
+})->name('terms');
+
+Route::get('/privacy-policy', function () {
+    return Inertia::render('privacy');
+})->name('privacy');
+
+
 Route::post('/cart', [CartController::class, 'addProduct']);
 
 Route::get('/checkout', function () {
