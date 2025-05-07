@@ -11,16 +11,15 @@ const Footer = () => {
                 <p className="text-center text-7xl font-black">Aurora</p>
             </div>
 
-            <div className="w-full bg-black py-6 text-white">
-                <div className="mx-auto flex w-3/4 justify-between">
-                    <a href="#">Terms</a>
+            <div className="w-full bg-black py-2 text-white sm:py-6">
+                <div className="flex w-full flex-col justify-between px-4 sm:mx-auto sm:w-3/4 sm:flex-row">
                     <p>Belgium, Anwerpen 2000 </p>
                     <div className="flex flex-row space-x-2">
-                        <p>wilczynskimarceli@gmail.com</p>
+                        <p>example@gmail.com</p>
                         <a href="terms" className="underline">
                             Terms{' '}
                         </a>
-                        <a href="privacy-policy" className="underline">
+                        <a href="privacy-policy" className="flex underline">
                             Privacy & Policy
                         </a>
                     </div>

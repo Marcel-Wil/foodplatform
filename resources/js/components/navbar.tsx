@@ -53,9 +53,15 @@ const Navbar = () => {
             <div className="hidden gap-8 sm:block sm:flex">
                 <Cart />
                 {auth.user ? (
-                    <button onClick={logout} className="text-xl font-bold text-black hover:cursor-pointer">
-                        Logout
-                    </button>
+                    <div className="flex gap-4">
+                        <a href="/settings/profile" className="text-xl font-bold text-black hover:cursor-pointer hover:underline">
+                            Profile
+                        </a>
+
+                        <button onClick={logout} className="text-xl font-bold text-black hover:cursor-pointer">
+                            Logout
+                        </button>
+                    </div>
                 ) : (
                     <a href="/login" className="text-xl font-bold text-black">
                         Login

@@ -4,12 +4,15 @@ import { usePage } from '@inertiajs/react';
 const profile = () => {
     const { auth } = usePage().props;
     return (
-        <div className="mt-13 flex flex-col font-bold">
-            <div className="flex space-x-14 bg-[#FFF9EA] md:pl-84">
-                <a href="/settings/profile" className="underline">
+        <div className="mt-14 flex flex-col font-bold">
+            {/* Navigation Tabs */}
+            <div className="flex space-x-6 rounded-md bg-[#FFF9EA] p-4 font-semibold text-gray-700">
+                <a href="/settings/profile" className="hover:underline">
                     Profile Settings
                 </a>
-                <a href="/settings/orders">My orders</a>
+                <a href="/settings/orders" className="text-yellow-700 underline">
+                    My Orders
+                </a>
             </div>
             <div className="mx-auto mt-20 flex min-w-7xl flex-col border bg-[#f9f1de]">
                 <h1 className="text-center text-4xl font-bold">My Settings</h1>
