@@ -190,9 +190,6 @@ const homepage = () => {
                             <p>Liège</p>
                             <p>Charleroi</p>
                             <p>Brussels</p>
-                            <p>Namur</p>
-                            <p>Flemish Brabant</p>
-                            <p>Walloon Brabant</p>
                             <p>Antwerp</p>
                             <p>Ghent</p>
                         </div>
