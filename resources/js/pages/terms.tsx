@@ -4,7 +4,7 @@ import Layout from '@/layouts/main-layout';
 
 const TermsPage = () => {
     return (
-        <div className="mx-auto flex h-screen max-w-7xl flex-col justify-center px-4 py-10">
+        <div className="mx-auto flex max-w-7xl flex-col justify-center px-4 py-20 sm:h-screen sm:py-10">
             <h1 className="mb-6 text-3xl font-bold">Terms & Conditions</h1>
 
             <section className="mb-8">
