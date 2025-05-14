@@ -51,7 +51,7 @@ const profile = () => {
                             </button>
                         </div>
                     </div>
-
+                    {console.log(auth)}
                     {/* Address */}
                     <div className="flex flex-col">
                         <label className="mb-1 block text-sm font-medium">Address</label>
@@ -60,7 +60,7 @@ const profile = () => {
                                 type="text"
                                 className="w-full rounded-sm border border-black bg-white px-3 py-2"
                                 required
-                                placeholder={auth.address[0].street}
+                                placeholder={auth.address.length > 0 && auth.address[0].street}
                             />
                             <button className="rounded-sm border border-black bg-gray-100 px-3 py-2 text-sm hover:cursor-pointer hover:bg-gray-200">
                                 Change
