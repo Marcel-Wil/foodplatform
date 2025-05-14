@@ -37,29 +37,29 @@ const homepage = () => {
                 <h3 className="py-8 text-center text-4xl font-extrabold text-black uppercase">view our menu</h3>
             </div>
 
-            {/* 3 pictures */}
+            {/* 5 pictures */}
             <div className="mx-auto my-12 grid max-w-sm grid-cols-1 gap-6 px-4 sm:max-w-6xl sm:grid-cols-3">
                 <div>
-                    <img className="h-[357px] w-[357px]" src="/images/avocadoToast.jpg" alt="" />
+                    <img className="h-[357px] w-[357px] object-cover" src="/images/avocadoToast.jpg" alt="" />
                     <p className="text-center text-lg leading-tight font-bold text-black">Avocado Toast</p>
                 </div>
                 <div>
-                    <img className="h-[357px] w-[357px]" src="/images/spicyRamen.jpg" alt="" />
+                    <img className="h-[357px] w-[357px] object-cover" src="/images/spicyRamen.jpg" alt="" />
                     <p className="text-center text-lg leading-tight font-bold text-black">Spicy Ramen</p>
                 </div>
                 <div>
-                    <img className="h-[357px] w-[357px]" src="/images/margheritaPizza.avif" alt="" />
+                    <img className="h-[357px] w-[357px] object-cover" src="/images/margheritaPizza.avif" alt="" />
                     <p className="text-center text-lg leading-tight font-bold text-black">Margherita Pizza</p>
                 </div>
             </div>
             <div className="mx-auto my-12 grid max-w-sm grid-cols-1 gap-6 px-4 sm:flex sm:max-w-6xl sm:justify-center">
                 <div>
-                    <img className="h-[357px] w-[357px]" src="/images/avocadoToast.jpg" alt="" />
-                    <p className="text-center text-lg leading-tight font-bold text-black">Avocado Toast</p>
+                    <img className="h-[357px] w-[357px] object-cover" src="/images/spicyChickenwings.jpg" alt="" />
+                    <p className="text-center text-lg leading-tight font-bold text-black">Spicy Chicken Wings</p>
                 </div>
                 <div>
-                    <img className="h-[357px] w-[357px]" src="/images/avocadoToast.jpg" alt="" />
-                    <p className="text-center text-lg leading-tight font-bold text-black">Avocado Toast</p>
+                    <img className="h-[357px] w-[357px] object-cover" src="/images/nachos.jpg" alt="" />
+                    <p className="text-center text-lg leading-tight font-bold text-black">Nachos</p>
                 </div>
             </div>
 
