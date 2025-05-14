@@ -64,6 +64,10 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
+        //create first this account so u have an admin account
+        if ($this->email == "admin@admin.com" && $this->name == "admin") {
+            return true;
+        }
+        return false;
     }
 }
