@@ -10,56 +10,55 @@ const TermsPage = () => {
             <section className="mb-8">
                 <h2 className="mb-2 text-xl font-bold">1. Introduction</h2>
                 <p className="text-gray-600">
-                    This website is a proof of concept for showcasing models, fashion, and modeling-related content. All images used are stock images
-                    and do not represent real endorsements, partnerships, or affiliations.
+                    This platform is a culinary concept showcasing food recipes, restaurant concepts, and gastronomic experiences. All food images and
+                    menu items displayed are for demonstration purposes and do not represent actual products available for purchase unless explicitly
+                    stated.
                 </p>
             </section>
 
             <section className="mb-8">
                 <h2 className="mb-2 text-xl font-bold">2. Use of Content</h2>
                 <p className="text-gray-600">
-                    All visual content on this site is intended for demonstration purposes only. You may not copy, reproduce, or repurpose any content
-                    without prior written permission.
+                    All culinary content including recipes, food photography, and menu concepts are intended for inspirational purposes only.
+                    Commercial use, reproduction, or republication of any content requires express written permission.
                 </p>
             </section>
 
             <section className="mb-8">
                 <h2 className="mb-2 text-xl font-bold">3. Intellectual Property</h2>
                 <p className="text-gray-600">
-                    All trademarks, logos, and other intellectual property featured are the property of their respective owners. This site does not
-                    claim ownership over any third-party assets.
+                    Recipe formulations, food styling concepts, and original culinary creations are protected intellectual property. All trademarks,
+                    restaurant names, and brand logos featured belong to their respective owners.
                 </p>
             </section>
 
             <section className="mb-8">
-                <h2 className="mb-2 text-xl font-bold">4. Limitation of Liability</h2>
+                <h2 className="mb-2 text-xl font-bold">4. Food & Allergy Disclaimer</h2>
                 <p className="text-gray-600">
-                    We are not liable for any loss or damages resulting from the use or inability to use this website, including but not limited to
-                    inaccuracies, errors, or interruptions.
+                    Recipe information is provided for conceptual purposes only. We do not guarantee allergen-free preparation or nutritional
+                    accuracy. Always consult professional dietary advice before attempting recipes.
                 </p>
             </section>
 
             <section className="mb-8">
                 <h2 className="mb-2 text-xl font-bold">5. External Links</h2>
                 <p className="text-gray-600">
-                    This site may contain links to external websites. We are not responsible for the content, practices, or accuracy of those
-                    third-party sites.
+                    Links to third-party food suppliers, restaurants, or culinary resources are provided for reference only. We are not responsible
+                    for the quality, safety, or accuracy of external content.
                 </p>
             </section>
 
             <section className="mb-8">
                 <h2 className="mb-2 text-xl font-bold">6. Changes to Terms</h2>
                 <p className="text-gray-600">
-                    We reserve the right to modify these terms at any time. Continued use of the website after changes constitutes acceptance of the
-                    new terms.
+                    We reserve the right to modify these terms at any time. Continued use of the platform after changes constitutes acceptance of the
+                    updated terms.
                 </p>
             </section>
 
             <section className="mb-8">
                 <h2 className="mb-2 text-xl font-bold">7. Contact</h2>
-                <p className="text-gray-600">
-                    For questions or concerns regarding these terms, please contact us through the website's contact form or email.
-                </p>
+                <p className="text-gray-600">For questions regarding these terms or our culinary concepts, please contact us info@mywastudio.be.</p>
             </section>
         </div>
     );

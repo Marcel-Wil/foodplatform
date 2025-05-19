@@ -10,48 +10,49 @@ const PrivacyPolicyPage = () => {
             <section className="mb-8">
                 <h2 className="mb-2 text-xl font-bold">1. Overview</h2>
                 <p className="text-gray-600">
-                    This website is a proof of concept for showcasing models, modeling content, and fashion-related themes. It is not a commercial
-                    product and does not collect, store, or share any personal data.
+                    This culinary platform is a concept showcasing food recipes, restaurant ideas, and gastronomic experiences. As a demonstration
+                    site, it does not collect, store, or process any personal user data related to food preferences, dietary restrictions, or ordering
+                    information.
                 </p>
             </section>
 
             <section className="mb-8">
-                <h2 className="mb-2 text-xl font-bold">2. No Data Collection</h2>
+                <h2 className="mb-2 text-xl font-bold">2. Data Collection Policy</h2>
                 <p className="text-gray-600">
-                    We do not collect any personal information, browsing data, or analytics from users. No cookies, tracking technologies, or forms
-                    that gather user input are present on this site.
+                    We do not collect personal information, dietary preferences, or browsing history. The platform operates without cookies, tracking
+                    technologies, or user accounts. Any recipe submissions or menu interactions are simulated for demonstration purposes only.
                 </p>
             </section>
 
             <section className="mb-8">
                 <h2 className="mb-2 text-xl font-bold">3. Third-Party Services</h2>
                 <p className="text-gray-600">
-                    This site does not use or integrate with any third-party services that collect user information. All images and content are static
-                    and intended for demonstration only.
+                    This food concept does not integrate with any third-party delivery services, payment processors, or restaurant APIs that might
+                    collect user information. All menu displays and culinary content are presented as static, non-transactional demonstrations.
                 </p>
             </section>
 
             <section className="mb-8">
-                <h2 className="mb-2 text-xl font-bold">4. Security</h2>
+                <h2 className="mb-2 text-xl font-bold">4. Data Security</h2>
                 <p className="text-gray-600">
-                    Since we do not process or store user data, no additional security measures regarding data protection are necessary for this
-                    website.
+                    Since no user data is collected for ordering, delivery, or personalization features, no special security measures for data
+                    protection are implemented. The platform serves purely as an inspirational culinary showcase.
                 </p>
             </section>
 
             <section className="mb-8">
-                <h2 className="mb-2 text-xl font-bold">5. Updates to This Policy</h2>
+                <h2 className="mb-2 text-xl font-bold">5. Policy Updates</h2>
                 <p className="text-gray-600">
-                    Although this is a non-functional demo site, we may update this privacy policy to reflect clarifications. Any changes will be
-                    clearly posted here.
+                    While this is a non-commercial culinary demonstration, we may update this privacy policy to provide additional clarity about our
+                    data practices. Any modifications will be clearly indicated with the revision date.
                 </p>
             </section>
 
             <section className="mb-8">
-                <h2 className="mb-2 text-xl font-bold">6. Contact</h2>
+                <h2 className="mb-2 text-xl font-bold">6. Contact Information</h2>
                 <p className="text-gray-600">
-                    If you have any questions about this Privacy Policy, please reach out via the contact form or email listed on the site (if
-                    applicable).
+                    For questions regarding this Privacy Policy or our culinary concepts, please use the contact methods provided on this platform.
+                    Note that no actual food orders can be placed through this demonstration site.
                 </p>
             </section>
         </div>
