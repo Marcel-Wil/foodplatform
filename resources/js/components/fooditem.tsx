@@ -2,7 +2,6 @@ import { router, usePage } from '@inertiajs/react';
 
 const Fooditem = ({ foodItem }) => {
     const { auth } = usePage().props;
-    console.log(foodItem.media.length > 0);
     const addToCart = () => {
         //only logged in users can put stuff into cart
         if (!auth.user) {
@@ -26,7 +25,7 @@ const Fooditem = ({ foodItem }) => {
             <img
                 src={foodItem.media.length > 0 ? foodItem.media[0].original_url : ''}
                 alt={foodItem.name}
-                className="h-full w-full transition-opacity duration-300 group-hover:opacity-0 object-cover"
+                className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0"
             />
             {/* Overlay content that becomes visible on hover */}
             <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
