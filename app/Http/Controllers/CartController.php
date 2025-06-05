@@ -22,8 +22,8 @@ class CartController extends Controller
             $cart->user_id = $user->id;
             $cart->save();
         }
-        $ifExistsInCart = CartItem::where('product_id', $request->product['id'])->where('cart_id', $cart->id)->first();
 
+        $ifExistsInCart = CartItem::where('food_item_id', $request->product['id'])->where('cart_id', $cart->id)->first();
         if ($ifExistsInCart) {
             $ifExistsInCart->quantity += 1;
             $ifExistsInCart->save();
@@ -31,7 +31,6 @@ class CartController extends Controller
         }
 
         if ($request->product['is_available']) {
-
             $cartItem = new CartItem;
             $cartItem->cart_id = $cart->id;
             $cartItem->food_item_id = $request->product['id'];
