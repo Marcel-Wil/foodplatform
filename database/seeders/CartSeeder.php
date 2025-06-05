@@ -18,6 +18,9 @@ class CartSeeder extends Seeder
     {
         //for every user create a cart and random cart items to the cart
         User::all()->each(function ($user) {
+            if ($user->admin_since) {
+                return;
+            }
             $cart = Cart::factory()->create([
                 'user_id' => $user->id,
                 'restaurant_id' => 1,
@@ -27,7 +30,14 @@ class CartSeeder extends Seeder
             CartItem::factory()->count(fake()->numberBetween(1, 10))
                 ->make()
                 ->each(function ($item) use ($cart) {
-                    $item->food_item_id = FoodItem::inRandomOrder()->first()->id;
+                    $foodItemId = FoodItem::inRandomOrder()->first()->id;
+                    // Check if the food item already exists in the cart
+                    $alreadyExists = $cart->cartItems()->where('food_item_id', $foodItemId)->exists();
+                    // If it exists, skip this item
+                    if ($alreadyExists) {
+                        return;
+                    }
+                    $item->food_item_id = $foodItemId;
                     $item->cart_id = $cart->id;
                     $item->save();
                 });
