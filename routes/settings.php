@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['verified', 'auth'])->group(function () {
     Route::redirect('settings', 'profile');
 
     Route::get('settings/profile', [ProfileController::class, 'edit'])->name('profile.edit');

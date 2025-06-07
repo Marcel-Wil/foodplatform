@@ -55,7 +55,7 @@ const Login = () => {
                             <Label htmlFor="remember">Remember me</Label>
                         </div>
                         <div className="mt-1 text-sm">
-                            <a href="#" className="text-gray-600 underline">
+                            <a href="forgot-password" className="text-gray-600 underline">
                                 Forgot your password?
                             </a>
                         </div>

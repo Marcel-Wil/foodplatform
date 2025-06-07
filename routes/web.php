@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Models\Cart;
 use App\Models\Faq;
 use App\Models\FaqCategory;
@@ -32,14 +33,23 @@ Route::get('/privacy-policy', function () {
     return Inertia::render('privacy');
 })->name('privacy');
 
+Route::middleware(['verified', 'auth'])->group(function () {
+    Route::get('/summary', function () {
+        return Inertia::render('summary', [
+            'cartItems' => Cart::getUserCartItems(),
+        ]);
+    })->name('summary');
 
-Route::post('/cart', [CartController::class, 'addProduct']);
+    Route::get('/order', function () {
+        return Inertia::render('order', [
+            'cartItems' => Cart::getUserCartItems(),
+        ]);
+    })->name('order');
 
-Route::get('/checkout', function () {
-    return Inertia::render('checkout', [
-        'cartItems' => Cart::getUserCartItems(),
-    ]);
-})->name('checkout');
+    Route::post('/cart', [CartController::class, 'addProduct']);
+
+    Route::post('/order', [OrderController::class, 'order']);
+});
 
 
 require __DIR__ . '/settings.php';
