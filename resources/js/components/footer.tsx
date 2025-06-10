@@ -15,7 +15,6 @@ const Footer = () => {
                 <div className="flex w-full flex-col justify-between px-4 sm:mx-auto sm:w-3/4 sm:flex-row">
                     <p>Belgium, Anwerpen 2000 </p>
                     <div className="flex flex-row space-x-2">
-                        <p>info@mywastudio.be</p>
                         <a href="terms" className="underline">
                             Terms{' '}
                         </a>
