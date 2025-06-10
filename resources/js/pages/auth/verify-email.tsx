@@ -1,7 +1,7 @@
 // Components
 import { Head, router, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
-import { FormEventHandler } from 'react';
+import { FormEventHandler, ReactNode } from 'react';
 
 import { Button } from '@/components/ui/button';
 import Layout from '@/layouts/main-layout';
@@ -56,4 +56,4 @@ export default function VerifyEmail({ status }: { status?: string }) {
     );
 }
 
-VerifyEmail.layout = (page) => <Layout children={page} />;
+VerifyEmail.layout = (page: ReactNode) => <Layout children={page} />;

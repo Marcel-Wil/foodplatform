@@ -1,4 +1,5 @@
 import { Link } from '@inertiajs/react';
+import { ReactNode } from 'react';
 import Layout from '../layouts/main-layout';
 
 const homepage = () => {
@@ -203,6 +204,6 @@ const homepage = () => {
     );
 };
 
-homepage.layout = (page) => <Layout children={page} />;
+homepage.layout = (page: ReactNode) => <Layout children={page} />;
 
 export default homepage;

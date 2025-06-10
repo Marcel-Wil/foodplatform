@@ -1,5 +1,6 @@
 import Layout from '@/layouts/main-layout';
 import { useForm } from '@inertiajs/react';
+import { FormEventHandler, ReactNode } from 'react';
 
 const Register = () => {
     const { data, setData, post, processing, errors } = useForm({
@@ -9,10 +10,10 @@ const Register = () => {
         password_confirmation: '',
     });
 
-    function submit(e) {
+    const submit: FormEventHandler = (e) => {
         e.preventDefault();
         post('/register');
-    }
+    };
 
     return (
         <div className="pt-44">
@@ -88,6 +89,6 @@ const Register = () => {
     );
 };
 
-Register.layout = (page) => <Layout children={page} />;
+Register.layout = (page: ReactNode) => <Layout children={page} />;
 
 export default Register;

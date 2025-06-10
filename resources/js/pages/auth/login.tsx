@@ -2,18 +2,19 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import Layout from '@/layouts/main-layout';
 import { useForm } from '@inertiajs/react';
+import { FormEventHandler, ReactNode } from 'react';
 
 const Login = () => {
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, post, errors } = useForm({
         email: '',
         password: '',
-        remember: false,
+        remember: false as boolean,
     });
 
-    function submit(e) {
+    const submit: FormEventHandler = (e) => {
         e.preventDefault();
         post('/login');
-    }
+    };
 
     return (
         <div className="pt-44">
@@ -82,6 +83,6 @@ const Login = () => {
     );
 };
 
-Login.layout = (page) => <Layout children={page} />;
+Login.layout = (page: ReactNode) => <Layout children={page} />;
 
 export default Login;

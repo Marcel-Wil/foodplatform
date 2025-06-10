@@ -1,7 +1,13 @@
 import Fooditem from '@/components/fooditem';
+import { FoodItem } from '@/types/menu';
+import { ReactNode } from 'react';
 import Layout from '../layouts/main-layout';
 
-const menu = ({ foodItems }) => {
+interface FoodItemsProps {
+    foodItems: FoodItem[];
+}
+
+const menu = ({ foodItems = [] }: FoodItemsProps) => {
     return (
         <div className="bg-white">
             {/* discount banner */}
@@ -32,7 +38,7 @@ const menu = ({ foodItems }) => {
             {/* grid with fooditems */}
             <div className="mx-auto mt-8 mb-8 max-w-sm sm:max-w-screen-xl">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                    {foodItems.map((foodItem, index) => (
+                    {foodItems.map((foodItem: FoodItem, index: number) => (
                         <Fooditem foodItem={foodItem} key={index} />
                     ))}
                 </div>
@@ -41,5 +47,5 @@ const menu = ({ foodItems }) => {
     );
 };
 
-menu.layout = (page) => <Layout children={page} />;
+menu.layout = (page: ReactNode) => <Layout children={page} />;
 export default menu;

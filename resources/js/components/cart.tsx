@@ -1,12 +1,11 @@
+import { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 
 export const Cart = () => {
-    const { totalCartItems } = usePage().props;
-
-    console.log(totalCartItems);
+    const { totalCartItems } = usePage<SharedData>().props;
 
     return (
-        <Link href="/checkout" className="relative inline-block hover:cursor-pointer">
+        <Link href="/summary" className="relative inline-block hover:cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                 <path
                     strokeLinecap="round"

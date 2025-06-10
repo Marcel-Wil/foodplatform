@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Layout from '@/layouts/main-layout';
+import { ReactNode } from 'react';
 
 export default function ForgotPassword({ status }: { status?: string }) {
     const { data, setData, post, processing, errors } = useForm<Required<{ email: string }>>({
@@ -67,4 +68,4 @@ export default function ForgotPassword({ status }: { status?: string }) {
     );
 }
 
-ForgotPassword.layout = (page) => <Layout children={page} />;
+ForgotPassword.layout = (page: ReactNode) => <Layout children={page} />;

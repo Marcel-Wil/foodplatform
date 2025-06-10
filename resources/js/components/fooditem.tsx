@@ -1,13 +1,17 @@
+import { SharedData } from '@/types';
+import { FoodItem } from '@/types/menu';
 import { router, usePage } from '@inertiajs/react';
 
-const Fooditem = ({ foodItem }) => {
-    const { auth } = usePage().props;
+interface FoodItemProps {
+    foodItem: FoodItem;
+}
+
+const Fooditem = ({ foodItem }: FoodItemProps) => {
+    const { auth } = usePage<SharedData>().props;
     const addToCart = () => {
-        //only logged in users can put stuff into cart
         if (!auth.user) {
             window.location.href = '/login';
         }
-        //handle adding to cart logic here:
         router.visit('/cart', {
             method: 'post',
             data: {
@@ -22,11 +26,13 @@ const Fooditem = ({ foodItem }) => {
             key={foodItem.id}
             className={`group relative h-[384px] w-[384px] ${foodItem.food_category.name === 'Vegan' ? 'hover:bg-green-600' : 'hover:bg-red-500'}`}
         >
-            <img
-                src={foodItem.media.length > 0 ? foodItem.media[0].original_url : ''}
-                alt={foodItem.name}
-                className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0"
-            />
+            {foodItem.media.length > 0 && (
+                <img
+                    src={foodItem.media[0].original_url}
+                    alt={foodItem.name}
+                    className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+                />
+            )}
             {/* Overlay content that becomes visible on hover */}
             <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <h2 className="text-lg font-semibold text-gray-800">{foodItem.name}</h2>
@@ -40,7 +46,7 @@ const Fooditem = ({ foodItem }) => {
                     </div>
                 )}
 
-                <p className="mt-2 text-sm text-black">${parseFloat(foodItem.price).toFixed(2)}</p>
+                <p className="mt-2 text-sm text-black">${foodItem.price.toFixed(2)}</p>
             </div>
             {/* Keep the + button always visible */}
             <button

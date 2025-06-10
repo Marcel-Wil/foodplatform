@@ -1,6 +1,6 @@
 import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
-import { FormEventHandler } from 'react';
+import { FormEventHandler, ReactNode } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -103,4 +103,4 @@ export default function ResetPassword({ token, email }: ResetPasswordProps) {
     );
 }
 
-ResetPassword.layout = (page) => <Layout children={page} />;
+ResetPassword.layout = (page: ReactNode) => <Layout children={page} />;

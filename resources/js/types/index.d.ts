@@ -3,6 +3,17 @@ import type { Config } from 'ziggy-js';
 
 export interface Auth {
     user: User;
+    address: Address[];
+}
+
+export interface Address {
+    id: number;
+    user_id: number;
+    street: string;
+    city: string;
+    created_at: string;
+    updated_at: string;
+    zipcode: string;
 }
 
 export interface BreadcrumbItem {
@@ -28,6 +39,7 @@ export interface SharedData {
     auth: Auth;
     ziggy: Config & { location: string };
     sidebarOpen: boolean;
+    totalCartItems: number;
     [key: string]: unknown;
 }
 
@@ -39,5 +51,5 @@ export interface User {
     email_verified_at: string | null;
     created_at: string;
     updated_at: string;
-    [key: string]: unknown; // This allows for additional properties...
+    [key: string]: unknown;
 }

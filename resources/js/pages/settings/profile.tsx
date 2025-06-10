@@ -1,78 +1,133 @@
 import Layout from '@/layouts/main-layout';
-import { usePage } from '@inertiajs/react';
+import { SharedData } from '@/types';
+import { router, useForm, usePage } from '@inertiajs/react';
+import { FormEventHandler, ReactNode, useState } from 'react';
 
-const profile = () => {
-    const { auth } = usePage().props;
+const Profile = () => {
+    const { auth } = usePage<SharedData>().props;
+    const [userEmail, setUserEmail] = useState(auth.user.email);
+    const [succesfullChangePsswd, setSuccesfullChangePsswd] = useState(false);
+
+    const { data, setData, put, processing, errors } = useForm({
+        current_password: '',
+        password: '',
+        password_confirmation: '',
+        remember: false,
+    });
+
+    const reset = () => {
+        setData('current_password', '');
+        setData('password', '');
+        setData('password_confirmation', '');
+        setData('remember', false);
+        setSuccesfullChangePsswd(true);
+    };
+
+    const submit: FormEventHandler = (e) => {
+        e.preventDefault();
+        put('password', {
+            onSuccess: () => reset(),
+        });
+    };
+
+    const changeEmail = () => {
+        router.visit('/settings/profile', {
+            method: 'patch',
+            data: {
+                email: userEmail,
+            },
+        });
+    };
+
     return (
-        <div className="mt-14 flex flex-col font-bold">
+        <div className="mt-12 flex flex-col items-center font-bold">
             {/* Navigation Tabs */}
-            <div className="flex space-x-6 rounded-md bg-[#FFF9EA] p-4 font-semibold text-gray-700">
-                <a href="/settings/profile" className="hover:underline">
+            <div className="mb-8 flex w-full space-x-6 rounded-md bg-[#FFF9EA] p-4 font-semibold text-gray-700">
+                <a href="/settings/profile" className="text-yellow-700 underline">
                     Profile Settings
                 </a>
-                <a href="/settings/orders" className="text-yellow-700 underline">
+                <a href="/settings/orders" className="hover:underline">
                     My Orders
                 </a>
             </div>
-            <div className="mx-auto mt-20 flex min-w-7xl flex-col border bg-[#f9f1de]">
-                <h1 className="text-center text-4xl font-bold">My Settings</h1>
-                <div className="mx-auto my-10 mt-8 w-1/2 space-y-8">
+
+            {/* Settings Container */}
+            <div className="mb-10 w-full max-w-3xl rounded-md border border-yellow-300 bg-[#f9f1de] p-10 shadow-md">
+                <h1 className="mb-10 text-center text-4xl font-bold">My Settings</h1>
+
+                <div className="space-y-10">
                     {/* Email */}
-                    <div className="flex flex-col">
-                        <label className="mb-1 block text-sm font-medium">e-mail</label>
-                        <div className="flex items-center gap-2">
-                            <input
-                                type="email"
-                                className="w-full rounded-sm border border-black bg-white px-3 py-2"
-                                required
-                                placeholder={auth.user.email}
-                            />
-                            <button className="rounded-sm border border-black bg-gray-100 px-3 py-2 text-sm hover:cursor-pointer hover:bg-gray-200">
-                                Change
-                            </button>
-                        </div>
-                    </div>
+                    <div>
+                        <label className="mb-2 block text-sm font-medium text-gray-800">Email</label>
+                        <input
+                            type="email"
+                            className="w-full rounded-md border border-gray-400 px-4 py-2 text-gray-900 focus:outline-yellow-600"
+                            required
+                            value={userEmail}
+                            onChange={(e) => setUserEmail(e.target.value)}
+                        />
 
-                    {/* Password */}
-                    <div className="flex flex-col">
-                        <label className="mb-1 block text-sm font-medium">Password</label>
-                        <div className="flex items-center gap-2">
-                            <input type="password" className="w-[87%] rounded-sm border border-black bg-white px-3 py-2" required />
-                        </div>
+                        <button
+                            className="mt-2 cursor-pointer rounded-md border border-black bg-gray-100 px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                            onClick={changeEmail}
+                        >
+                            Change Email
+                        </button>
                     </div>
-
-                    {/* Confirm Password */}
-                    <div className="flex flex-col">
-                        <label className="mb-1 block text-sm font-medium">Confirm Password</label>
-                        <div className="flex items-center gap-2">
-                            <input type="password" className="w-full rounded-sm border border-black bg-white px-3 py-2" required />
-                            <button className="rounded-sm border border-black bg-gray-100 px-3 py-2 text-sm hover:cursor-pointer hover:bg-gray-200">
-                                Change
-                            </button>
-                        </div>
-                    </div>
-                    {console.log(auth)}
-                    {/* Address */}
-                    <div className="flex flex-col">
-                        <label className="mb-1 block text-sm font-medium">Address</label>
-                        <div className="flex items-center gap-2">
+                    <form onSubmit={submit}>
+                        {/*Current Password */}
+                        <div>
+                            <label className="mb-2 block text-sm font-medium text-gray-800">Current Passowrd</label>
                             <input
-                                type="text"
-                                className="w-full rounded-sm border border-black bg-white px-3 py-2"
+                                type="password"
+                                className="w-full rounded-md border border-gray-400 px-4 py-2 text-gray-900 focus:outline-yellow-600"
                                 required
-                                placeholder={auth.address.length > 0 && auth.address[0].street}
+                                value={data.current_password}
+                                onChange={(e) => setData('current_password', e.target.value)}
                             />
-                            <button className="rounded-sm border border-black bg-gray-100 px-3 py-2 text-sm hover:cursor-pointer hover:bg-gray-200">
-                                Change
-                            </button>
+                            {errors.current_password && <div className="text-red-600">{errors.current_password}</div>}
                         </div>
-                    </div>
+
+                        {/* Password */}
+                        <div>
+                            <label className="mb-2 block text-sm font-medium text-gray-800">New Password</label>
+                            <input
+                                type="password"
+                                className="w-full rounded-md border border-gray-400 px-4 py-2 text-gray-900 focus:outline-yellow-600"
+                                required
+                                value={data.password}
+                                onChange={(e) => setData('password', e.target.value)}
+                            />
+                            {errors.password && <div className="text-red-600">{errors.password}</div>}
+                        </div>
+
+                        {/* Confirm Password */}
+                        <div>
+                            <label className="mb-2 block text-sm font-medium text-gray-800">Confirm Password</label>
+                            <input
+                                type="password"
+                                className="w-full rounded-md border border-gray-400 px-4 py-2 text-gray-900 focus:outline-yellow-600"
+                                required
+                                value={data.password_confirmation}
+                                onChange={(e) => setData('password_confirmation', e.target.value)}
+                            />
+                            {errors.password_confirmation && <div className="text-red-600">{errors.password_confirmation}</div>}
+                            <button
+                                className="mt-2 cursor-pointer rounded-md border border-black bg-gray-100 px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                                type="submit"
+                                disabled={processing}
+                            >
+                                Change Password
+                            </button>
+                            {succesfullChangePsswd && <div className="text-green-600">Succesfully changed the password</div>}
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     );
 };
 
-profile.layout = (page) => <Layout children={page} />;
+Profile.layout = (page: ReactNode) => <Layout children={page} />;
 
-export default profile;
+export default Profile;

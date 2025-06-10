@@ -1,9 +1,10 @@
+import { SharedData } from '@/types';
 import { router, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import { Cart } from './cart';
 
 const Navbar = () => {
-    const { auth } = usePage().props;
+    const { auth } = usePage<SharedData>().props;
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!isMobileMenuOpen);

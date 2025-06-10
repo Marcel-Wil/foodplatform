@@ -1,6 +1,7 @@
 // TermsPage.tsx
 
 import Layout from '@/layouts/main-layout';
+import { ReactNode } from 'react';
 
 const TermsPage = () => {
     return (
@@ -64,6 +65,6 @@ const TermsPage = () => {
     );
 };
 
-TermsPage.layout = (page) => <Layout children={page} />;
+TermsPage.layout = (page: ReactNode) => <Layout children={page} />;
 
 export default TermsPage;

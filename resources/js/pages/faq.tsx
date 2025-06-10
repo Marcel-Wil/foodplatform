@@ -1,21 +1,15 @@
-import { useState } from 'react';
+import { FAQCategory, FAQItem } from '@/types/faqs';
+import { ReactNode, useState } from 'react';
 import Layout from '../layouts/main-layout';
 
-const subscriptions = [
-    [
-        'What’s inside a Crowd Cooks box?',
-        `Discover the Crowd Cooks box: delicious, pre-cooked meals ready to delight your taste buds! Each week, choose from 12 carefully crafted options. Each meal weighs a generous 450 grams and is presented in an eco-friendly, 100% recycled and recyclable container. Want to know the ingredients? Just click on the dish's photo to find out everything. Enjoy without compromise!`,
-    ],
-    [
-        'How can I pause or cancel my subscription?',
-        'Your Crowd Cooks box is 100% flexible! Pause or cancel your subscription anytime. There is no commitment. Simply log in to your customer account.',
-    ],
-];
+interface FAQProps {
+    faqs: FAQCategory[];
+}
 
-const Faq = ({ faqs }) => {
-    const [openFaq, setOpenFaq] = useState(null);
-    const toggleFAQ = (faq) => {
-        setOpenFaq(faq === openFaq ? null : faq); // toggle open/close
+const Faq = ({ faqs }: FAQProps) => {
+    const [openFaq, setOpenFaq] = useState<FAQItem | null>(null);
+    const toggleFAQ = (faq: FAQItem) => {
+        setOpenFaq(faq === openFaq ? null : faq);
     };
 
     return (
@@ -23,8 +17,8 @@ const Faq = ({ faqs }) => {
             <h1 className="py-6 pt-40 pb-5 text-center text-6xl font-bold text-black">FREQUENTLY ASKED QUESTIONS</h1>
 
             {faqs &&
-                faqs.map((faq, index) => (
-                    <section className="mx-auto mt-12 max-w-6xl px-5 py-8 md:py-20">
+                faqs.map((faq) => (
+                    <section className="mx-auto mt-12 max-w-6xl px-5 py-8 md:py-20" key={faq.id}>
                         <h2 className="font-display pb-4 text-center text-4xl font-bold tracking-tight text-black uppercase">{faq.name}</h2>
                         <div className="flex w-full flex-col text-black">
                             {faq.faqs &&
@@ -62,7 +56,7 @@ const Faq = ({ faqs }) => {
                                         stroke-width="2"
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
-                                        class="lucide lucide-mail-icon lucide-mail"
+                                        className="lucide lucide-mail-icon lucide-mail"
                                     >
                                         <rect width="20" height="16" x="2" y="4" rx="2" />
                                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
@@ -83,7 +77,7 @@ const Faq = ({ faqs }) => {
                                         stroke-width="2"
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
-                                        class="lucide lucide-map-pin-icon lucide-map-pin"
+                                        className="lucide lucide-map-pin-icon lucide-map-pin"
                                     >
                                         <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
                                         <circle cx="12" cy="10" r="3" />
@@ -105,7 +99,7 @@ const Faq = ({ faqs }) => {
                                         stroke-width="2"
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
-                                        class="lucide lucide-phone-icon lucide-phone"
+                                        className="lucide lucide-phone-icon lucide-phone"
                                     >
                                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                                     </svg>
@@ -152,5 +146,5 @@ const Faq = ({ faqs }) => {
         </div>
     );
 };
-Faq.layout = (page) => <Layout children={page} />;
+Faq.layout = (page: ReactNode) => <Layout children={page} />;
 export default Faq;

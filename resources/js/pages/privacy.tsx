@@ -1,6 +1,7 @@
 // PrivacyPolicyPage.tsx
 
 import Layout from '@/layouts/main-layout';
+import { ReactNode } from 'react';
 
 const PrivacyPolicyPage = () => {
     return (
@@ -59,6 +60,6 @@ const PrivacyPolicyPage = () => {
     );
 };
 
-PrivacyPolicyPage.layout = (page) => <Layout children={page} />;
+PrivacyPolicyPage.layout = (page: ReactNode) => <Layout children={page} />;
 
 export default PrivacyPolicyPage;

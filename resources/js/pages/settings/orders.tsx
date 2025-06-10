@@ -1,9 +1,15 @@
 import Layout from '@/layouts/main-layout';
+import { Order } from '@/types/orders';
 import { format } from 'date-fns';
+import { ReactNode } from 'react';
 
-const Orders = ({ orders }) => {
+interface OrdersProps {
+    orders: Order[];
+}
+
+const Orders = ({ orders }: OrdersProps) => {
     return (
-        <div className="mt-10 pt-2">
+        <div className="mt-11 pt-2">
             {/* Navigation Tabs */}
             <div className="flex space-x-6 rounded-md bg-[#FFF9EA] p-4 font-semibold text-gray-700">
                 <a href="/settings/profile" className="hover:underline">
@@ -14,12 +20,12 @@ const Orders = ({ orders }) => {
                 </a>
             </div>
 
-            <div className="mx-auto mt-10 max-w-5xl">
+            <div className="mx-auto my-10 max-w-5xl">
                 <h1 className="mb-6 text-2xl font-bold text-gray-800">My Orders</h1>
 
                 {orders && orders.length > 0 ? (
                     <div className="space-y-6">
-                        {orders.map((order, index) => (
+                        {orders.map((order) => (
                             <div key={order.id} className="rounded-xl border border-gray-200 bg-white p-6 shadow-md transition hover:shadow-lg">
                                 <div className="mb-2 flex items-center justify-between">
                                     <span className="text-sm text-gray-500">Order #{order.id}</span>
@@ -59,6 +65,6 @@ const Orders = ({ orders }) => {
     );
 };
 
-Orders.layout = (page) => <Layout children={page} />;
+Orders.layout = (page: ReactNode) => <Layout children={page} />;
 
 export default Orders;
