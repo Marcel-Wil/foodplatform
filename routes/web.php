@@ -47,7 +47,8 @@ Route::middleware(['verified', 'auth'])->group(function () {
     })->name('order');
 
     Route::post('/cart', [CartController::class, 'addProduct']);
-
+    Route::post('/cartSummary', [CartController::class, 'addProductFromSummary']);
+    Route::patch('/cartSummary', [CartController::class, 'deleteFromCart']);
     Route::post('/order', [OrderController::class, 'order']);
 });
 
