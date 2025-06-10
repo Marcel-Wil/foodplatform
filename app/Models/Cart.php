@@ -69,5 +69,32 @@ class Cart extends Model
             ->get();
         return $cart_items->count();
     }
+    public static function cartGetTotalPrice()
+    {
+        $user = User::where('id', '=', auth()->id())->first();
+        if (!$user) {
+            throw new AuthenticationException();
+        }
+
+        $cart = Cart::firstOrCreate(
+            ['user_id' => $user->id],
+            ['created_at' => now(), 'updated_at' => now()]
+        );
+
+        $cart_items = CartItem::where('cart_id', $cart->id)
+            ->with('foodItem') // Eager load the related food item
+            ->get();
+
+        $totalPrice = 0;
+
+        foreach ($cart_items as $item) {
+            if ($item->foodItem) {
+                $totalPrice += $item->quantity * $item->foodItem->price;
+            }
+        }
+
+        return $totalPrice;
+    }
+
 
 }

@@ -38,7 +38,6 @@ class FoodItem extends Model implements HasMedia
             }
             return $foodItem;
         });
-
         return $foodItemsWithMedia;
     }
 
