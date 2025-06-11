@@ -3,6 +3,34 @@ interface DateTimeString {
     updated_at: string;
 }
 
+interface Manipulations {
+    [conversionName: string]: {
+        width?: number;
+        height?: number;
+        crop?: string;
+        fit?: string;
+        [key: string]: unknown;
+    };
+}
+
+interface ResponsiveImages {
+    [conversionName: string]: {
+        urls: string[];
+        srcset: string;
+        base64svg?: string;
+        [key: string]: unknown;
+    };
+}
+
+interface GeneratedConversions {
+    [conversionName: string]: boolean;
+}
+interface CustomProperties {
+    alt?: string;
+    caption?: string;
+    responsive?: boolean;
+    [key: string]: unknown;
+}
 interface MediaItem extends DateTimeString {
     id: number;
     model_type: string;
@@ -15,10 +43,10 @@ interface MediaItem extends DateTimeString {
     disk: string;
     conversions_disk: string;
     size: number;
-    manipulations: any[];
-    custom_properties: any[];
-    generated_conversions: any[];
-    responsive_images: any[];
+    manipulations: Manipulations;
+    custom_properties: CustomProperties;
+    generated_conversions: GeneratedConversions;
+    responsive_images: ResponsiveImages;
     order_column: number;
     original_url: string;
     preview_url: string | null;
@@ -41,5 +69,4 @@ export interface FoodItem extends DateTimeString {
     picture: string;
     food_category: FoodCategory;
     media: MediaItem[];
-    [key: string]: any;
 }
