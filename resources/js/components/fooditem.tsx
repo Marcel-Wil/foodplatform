@@ -46,7 +46,7 @@ const Fooditem = ({ foodItem }: FoodItemProps) => {
                     </div>
                 )}
 
-                <p className="mt-2 text-sm text-black">${foodItem.price.toFixed(2)}</p>
+                <p className="mt-2 text-sm text-black">${Number(foodItem.price || 0).toFixed(2)}</p>
             </div>
             {/* Keep the + button always visible */}
             <button
