@@ -106,18 +106,6 @@ const OrderDetails = ({ cartItems }: CartItemsProps) => {
                     </select>
                 </div>
 
-                {/* Delivery Time */}
-                <div className="rounded-2xl border bg-white p-4 shadow">
-                    <label className="mb-2 block text-sm font-semibold text-gray-700">Preferred Delivery Time</label>
-                    <input
-                        type="datetime-local"
-                        name="delivery_time"
-                        value={formData.delivery_time}
-                        onChange={handleChange}
-                        className="w-full rounded-lg border p-3 text-sm"
-                    />
-                </div>
-
                 {/* Submit */}
                 <div className="text-right">
                     <h2 className="text-xl font-bold">Cart Total: ${calculateCartTotal()}</h2>
