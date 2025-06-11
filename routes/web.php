@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Models\Cart;
 use App\Models\Faq;
 use App\Models\FaqCategory;
@@ -50,6 +51,9 @@ Route::middleware(['verified', 'auth'])->group(function () {
     Route::post('/cartSummary', [CartController::class, 'addProductFromSummary']);
     Route::patch('/cartSummary', [CartController::class, 'deleteFromCart']);
     Route::post('/order', [OrderController::class, 'order']);
+    Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
+    Route::get('/payment/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
+
 });
 
 

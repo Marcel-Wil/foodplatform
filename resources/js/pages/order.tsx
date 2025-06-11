@@ -1,7 +1,8 @@
 import Layout from '@/layouts/main-layout';
 import { SharedData } from '@/types';
 import { CartItem } from '@/types/cart';
-import { router, usePage } from '@inertiajs/react';
+import { usePage } from '@inertiajs/react';
+import axios from 'axios';
 import React, { ReactNode, useState } from 'react';
 
 interface CartItemsProps {
@@ -32,16 +33,15 @@ const OrderDetails = ({ cartItems }: CartItemsProps) => {
     };
 
     const order = () => {
-        if (!auth.user) {
-            window.location.href = '/login';
-            return;
-        }
-
-        router.visit('/order', {
-            method: 'post',
-            data: formData,
-            preserveScroll: true,
-        });
+        axios
+            .post('/order', formData)
+            .then((response) => {
+                window.location.href = response.data.url;
+            })
+            .catch((error) => {
+                console.error('Order failed:', error);
+                // Optionally show error to user
+            });
     };
 
     return (
