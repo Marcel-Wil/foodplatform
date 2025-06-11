@@ -4,32 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Address;
 use App\Models\Order;
-use App\Notifications\OrderCreated;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Stripe\Stripe;
 use Stripe\Checkout\Session as StripeCheckout;
-
+use Stripe\Stripe;
 
 class OrderController extends Controller
 {
-    //TODO: make a custom request to validate the data
+    // TODO: make a custom request to validate the data
     public function order(Request $request)
     {
         $user = $request->user();
         $cart = $user->cart;
-        //Address data from frontend request
+        // Address data from frontend request
         $payment_method = $request['payment_method'];
         $street = $request['street'];
         $city = $request['city'];
         $zipcode = $request['zipcode'];
         $country = 'Belgium';
 
-        //TODO: validate the data
+        // TODO: validate the data
 
         $address = $user->address;
         if ($address) {
-            //if the address got changed since previous one then update
+            // if the address got changed since previous one then update
             if ($address->street != $street || $address->city != $city || $address->zipcode != $zipcode) {
                 $address->update([
                     'street' => $street,
@@ -48,7 +45,6 @@ class OrderController extends Controller
             ]);
         }
 
-
         Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
         $order = Order::create([
@@ -61,7 +57,6 @@ class OrderController extends Controller
             'total_price' => $cart->cartGetTotalPrice(),
         ]);
 
-
         $total = $cart->cartGetTotalPrice();
         $checkoutSession = StripeCheckout::create([
             'payment_method_types' => ['card'],
@@ -70,22 +65,20 @@ class OrderController extends Controller
                     'price_data' => [
                         'currency' => 'eur',
                         'product_data' => [
-                            'name' => 'Order #' . $order->id,
+                            'name' => 'Order #'.$order->id,
                         ],
                         'unit_amount' => intval($total * 100), // convert euros to cents
                     ],
                     'quantity' => 1,
-                ]
+                ],
             ],
             'mode' => 'payment',
             'metadata' => [
                 'order_id' => $order->id,
             ],
-            'success_url' => route('payment.success') . '?session_id={CHECKOUT_SESSION_ID}',
+            'success_url' => route('payment.success').'?session_id={CHECKOUT_SESSION_ID}',
             'cancel_url' => route('payment.cancel'),
         ]);
-
-
 
         return response()->json([
             'url' => $checkoutSession->url,

@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Termwind\Components\Hr;
 
 class Cart extends Model
 {
@@ -36,8 +35,8 @@ class Cart extends Model
     public static function getUserCartItems()
     {
         $user = User::where('id', '=', auth()->id())->first();
-        if (!$user) {
-            throw new AuthenticationException();
+        if (! $user) {
+            throw new AuthenticationException;
         }
 
         $cart = Cart::firstOrCreate(
@@ -49,14 +48,13 @@ class Cart extends Model
             ->with('foodItem') // Eager load the related products
             ->get();
 
-
         return $cart_items;
     }
 
     public static function getTotalCartItems()
     {
         $user = User::where('id', '=', auth()->id())->first();
-        if (!$user) {
+        if (! $user) {
             return 0;
         }
         $cart = Cart::firstOrCreate(
@@ -67,13 +65,15 @@ class Cart extends Model
         $cart_items = CartItem::where('cart_id', $cart->id)
             ->with('foodItem') // Eager load the related products
             ->get();
+
         return $cart_items->count();
     }
+
     public static function cartGetTotalPrice()
     {
         $user = User::where('id', '=', auth()->id())->first();
-        if (!$user) {
-            throw new AuthenticationException();
+        if (! $user) {
+            throw new AuthenticationException;
         }
 
         $cart = Cart::firstOrCreate(
@@ -95,6 +95,4 @@ class Cart extends Model
 
         return $totalPrice;
     }
-
-
 }

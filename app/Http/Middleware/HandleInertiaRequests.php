@@ -49,7 +49,7 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
                 'address' => $request->user() ? $request->user()->address()->get() : null,
             ],
-            'ziggy' => fn(): array => [
+            'ziggy' => fn (): array => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\CartItem;
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -14,7 +13,7 @@ class CartController extends Controller
         $user = $request->user();
 
         $cart = Cart::where('user_id', '=', $user->id)->first();
-        if (!$cart) {
+        if (! $cart) {
             $cart = new Cart;
             $cart->user_id = $user->id;
             $cart->save();
@@ -24,6 +23,7 @@ class CartController extends Controller
         if ($ifExistsInCart) {
             $ifExistsInCart->quantity += 1;
             $ifExistsInCart->save();
+
             return to_route('menu');
         }
 
@@ -38,7 +38,6 @@ class CartController extends Controller
         return to_route('menu');
     }
 
-
     public function addProductFromSummary(Request $request)
     {
         $user = $request->user();
@@ -47,12 +46,13 @@ class CartController extends Controller
         if ($ifExistsInCart) {
             $ifExistsInCart->quantity += 1;
             $ifExistsInCart->save();
+
             return to_route('summary');
         }
 
     }
 
-    //this function decreases the quanity of an item in cart unless it's gonna go below 1 then it removes it
+    // this function decreases the quanity of an item in cart unless it's gonna go below 1 then it removes it
     public function deleteFromCart(Request $request)
     {
         $user = $request->user();
@@ -62,14 +62,14 @@ class CartController extends Controller
         if ($ifExistsInCart) {
             if ($ifExistsInCart->quantity == 1) {
                 $ifExistsInCart->delete();
+
                 return to_route('summary');
             }
             $ifExistsInCart->quantity -= 1;
             $ifExistsInCart->save();
+
             return to_route('summary');
         }
 
     }
-
-
 }

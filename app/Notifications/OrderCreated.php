@@ -46,7 +46,6 @@ class OrderCreated extends Notification implements ShouldQueue
             ]);
     }
 
-
     /**
      * Get the array representation of the notification.
      *

@@ -36,8 +36,10 @@ class FoodItem extends Model implements HasMedia
             } else {
                 $foodItem->picture = $foodItem->getFirstMediaUrl('foodItem_image');
             }
+
             return $foodItem;
         });
+
         return $foodItemsWithMedia;
     }
 

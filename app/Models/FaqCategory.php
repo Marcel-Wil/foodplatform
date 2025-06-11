@@ -10,12 +10,11 @@ class FaqCategory extends Model
 {
     //
     use HasFactory;
+
     protected $fillable = ['name'];
 
     public function faqs(): HasMany
     {
         return $this->hasMany(Faq::class);
     }
-
-
 }

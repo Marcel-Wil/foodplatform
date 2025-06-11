@@ -26,7 +26,7 @@ class CartItem extends Model
         return $this->belongsTo(FoodItem::class);
     }
 
-    //copied it from fooditem cba changing names
+    // copied it from fooditem cba changing names
     public static function cartItemsWithMedia($optionalFoodItems = null, $passedFrom = null)
     {
 
@@ -41,6 +41,7 @@ class CartItem extends Model
             } else {
                 $foodItem->picture = $foodItem->getFirstMediaUrl('foodItem_image');
             }
+
             return $foodItem;
         });
 
