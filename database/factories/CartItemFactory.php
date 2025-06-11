@@ -18,7 +18,7 @@ class CartItemFactory extends Factory
     {
         return [
             //
-            'quantity' => fake()->numberBetween(1, 9)
+            'quantity' => fake()->numberBetween(1, 9),
         ];
     }
 }

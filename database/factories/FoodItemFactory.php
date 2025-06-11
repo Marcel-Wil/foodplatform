@@ -30,12 +30,13 @@ class FoodItemFactory extends Factory
         ];
 
         $randomMeal = fake()->unique()->randomElement($meals);
+
         return [
             'name' => $randomMeal[0],
             'food_category_id' => $randomMeal[1],
             'description' => fake()->sentence(),
             'price' => fake()->randomFloat(2, 5, 30), // price between 5.00 and 30.00
-            'is_available' => True,
+            'is_available' => true,
         ];
     }
 }

@@ -9,20 +9,20 @@ use App\Models\Order;
 use App\Models\Restaurant;
 use App\Models\User;
 use App\Notifications\OrderCreated;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Notification;
 
 uses(RefreshDatabase::class);
 
 test('creates an order and clears cart', function () {
     Notification::fake();
 
-    //create a restaurant
+    // create a restaurant
     $restaurant = Restaurant::factory()->create([
         'name' => 'CleanFood',
         'description' => 'Restaurant Cleanfood',
         'location' => 'antwerpen',
-        'is_active' => true
+        'is_active' => true,
     ]);
 
     // Create a user and simulate logged in
@@ -33,7 +33,7 @@ test('creates an order and clears cart', function () {
         'street' => 'Main Street',
         'city' => 'Brussels',
         'zipcode' => '1000',
-        'country' => 'Belgium'
+        'country' => 'Belgium',
     ]);
 
     // Simulate existing cart and items

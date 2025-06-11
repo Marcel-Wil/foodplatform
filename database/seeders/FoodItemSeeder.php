@@ -2,11 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\FoodCategory;
 use App\Models\FoodItem;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\File;
 
 class FoodItemSeeder extends Seeder
 {

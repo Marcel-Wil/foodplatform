@@ -21,7 +21,7 @@ class RestaurantFactory extends Factory
             'name' => 'CleanFood',
             'description' => 'Restaurant Cleanfood',
             'location' => fake()->address(),
-            'is_active' => true
+            'is_active' => true,
         ];
     }
 }

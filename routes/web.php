@@ -4,7 +4,6 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Models\Cart;
-use App\Models\Faq;
 use App\Models\FaqCategory;
 use App\Models\FoodItem;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +55,5 @@ Route::middleware(['verified', 'auth'])->group(function () {
 
 });
 
-
-require __DIR__ . '/settings.php';
-require __DIR__ . '/auth.php';
+require __DIR__.'/settings.php';
+require __DIR__.'/auth.php';

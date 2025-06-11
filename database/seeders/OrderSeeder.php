@@ -6,7 +6,6 @@ use App\Models\FoodItem;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class OrderSeeder extends Seeder
@@ -21,7 +20,7 @@ class OrderSeeder extends Seeder
             $orders = Order::factory()->count(fake()->numberBetween(1, 5))->create([
                 'user_id' => $user->id,
                 'address_id' => $user->address()->first()->id,
-                'status' => fake()->randomElement([ //pending, accepted, delivered, cancelled
+                'status' => fake()->randomElement([ // pending, accepted, delivered, cancelled
                     'pending',
                     'accepted',
                     'delivered',
@@ -30,14 +29,14 @@ class OrderSeeder extends Seeder
                 'payment_status' => fake()->randomElement([
                     'unpaid',
                     'paid',
-                    'failed'
+                    'failed',
                 ]),
                 'payment_method' => fake()->randomElement([
                     'bancontact',
                     'cash',
-                    'crypto' //lol
+                    'crypto', // lol
                 ]),
-                'total_price' => fake()->randomFloat(1, 1, 100)
+                'total_price' => fake()->randomFloat(1, 1, 100),
             ]);
 
             $orders->each(function ($order) {

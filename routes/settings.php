@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
-use App\Models\Order;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,10 +15,11 @@ Route::middleware(['verified', 'auth'])->group(function () {
 
     Route::get('settings/orders', function () {
         $user = Auth()->user();
+
         return Inertia::render(
             'settings/orders',
             [
-                'orders' => $user->orders()->get()
+                'orders' => $user->orders()->get(),
             ]
         );
     })->name('orders');

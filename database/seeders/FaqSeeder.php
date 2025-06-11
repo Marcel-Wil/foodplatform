@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Faq;
 use App\Models\FaqCategory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class FaqSeeder extends Seeder
@@ -55,13 +54,12 @@ class FaqSeeder extends Seeder
             ],
         ];
 
-
         foreach ($faq_categories as $category) {
-            //create FAQ category
+            // create FAQ category
             $faqCategory = FaqCategory::factory()->create([
-                'name' => $category
+                'name' => $category,
             ]);
-            //loop through questions and answers for that category
+            // loop through questions and answers for that category
             foreach ($faqs[$category] as $question => $answer) {
                 Faq::factory()->create([
                     'question' => $question,
