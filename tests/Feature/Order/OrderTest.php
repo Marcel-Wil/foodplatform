@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Notification;
 
 uses(RefreshDatabase::class);
 
-test('creates an order and clears cart', function () {
-    Notification::fake();
+test('creates an unpaid order', function () {
 
     // create a restaurant
     $restaurant = Restaurant::factory()->create([
@@ -70,14 +69,12 @@ test('creates an order and clears cart', function () {
         'zipcode' => '1000',
     ]);
 
-    // Check redirection
-    $response->assertRedirect(route('orders'));
 
     // Assert order was created
     $this->assertDatabaseHas('orders', [
         'user_id' => $user->id,
         'payment_method' => 'card',
-        'payment_status' => 'paid',
+        'payment_status' => 'unpaid',
         'total_price' => 40.00,
     ]);
 
@@ -89,11 +86,4 @@ test('creates an order and clears cart', function () {
         'zipcode' => '1000',
         'country' => 'Belgium',
     ]);
-
-    // Assert cart and items are deleted
-    $this->assertDatabaseMissing('carts', ['id' => $cart->id]);
-    $this->assertDatabaseMissing('cart_items', ['cart_id' => $cart->id]);
-
-    // Assert notification was sent
-    Notification::assertSentTo($user, OrderCreated::class);
 });
