@@ -21,7 +21,7 @@ const menu = ({ foodItems = [] }: FoodItemsProps) => {
                 <div className="pt-8">
                     <h1 className="mb-6 text-center text-5xl font-bold tracking-tight uppercase">Menu</h1>
                     <div className="mt-6 flex items-center justify-center gap-4">
-                        <a href="/checkout">
+                        <a href="/summary">
                             <button className="rounded border-2 border-black px-5 py-3 text-lg font-bold uppercase hover:cursor-pointer hover:bg-black hover:text-white">
                                 Order Now
                             </button>
